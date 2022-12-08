@@ -1,0 +1,24 @@
+@extends('layouts.layout')
+
+@section('meta')
+@endsection
+
+@section('css')
+@endsection
+
+@section('js')
+@endsection
+
+@section('content')
+<a href="{{route('article')}}">戻る</a>
+    @isset($articles_category)
+        @foreach ($articles_category as $article_category)
+            <div class="article">
+                <h1>{{$article_category->article['title']}}</h1>
+                <p>{{$article_category->article['body']}}</p>
+            </div>
+        @endforeach
+    @else
+        <h2>記事がありません</h2>
+    @endisset
+@endsection
