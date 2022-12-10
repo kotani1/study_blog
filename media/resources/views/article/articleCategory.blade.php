@@ -10,8 +10,15 @@
 @endsection
 
 @section('content')
-<a href="{{route('article')}}">戻る</a>
+
     @isset($articles_category)
+    <a href="{{route('article')}}">戻る</a>
+        <form action="{{route('article.article-category-search.newest',$category_id)}}" method="POST">
+            @csrf
+            <input type="hidden" name="category_id" value="{{$category_id}}">
+            <button type="submit">最新順</button>
+        </form>
+    <p>記事数：{{count($articles_category)}}</p>
         @foreach ($articles_category as $article_category)
             <div class="article">
                 <h1>{{$article_category->article['title']}}</h1>
