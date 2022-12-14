@@ -6,9 +6,6 @@
 @section('css')
  @vite(['resources/scss/article.scss'])
 @endsection
-@section('js')
- @vite(['resources/js/article.js'])
-@endsection
 
 
 
@@ -16,13 +13,13 @@
 @section('content')
 <div class="flex">
   <div class="left">
-    <h1>Laravelを勉強してみて</h1>
+    <h1>タイトル</h1>
     {{-- <p>記事作成日： {{substr($article['created_at'], 0,10);}}</p> --}}
     {{-- <p>補足説明：laravel1を勉強してみての感想 --}}
     </p>
     <hr noshade>
     <div class="block">
-      <span class="subtitle" id="subtitle1">&emsp;Laravelとは</span>
+      <span class="subtitle" id="subtitle1">&emsp;サブタイトル</span>
       <hr noshade>
       <p>Laravel は、MVCのWebアプリケーション開発用の無料・オープンソースのPHPで書かれたWebアプリケーションフレームワークである。様々なコミュニティのコンポーネントを使用しており、特にSymfonyは9つのコンポートを利用するなど重要な基盤となっている。(wikipedia引用)</p>
     </div>
@@ -57,6 +54,14 @@
 </div>
 <script>
 //subtitle一覧機能
-
+  let subtitle_block =  $('#subtitle_block');
+  for(let i=1; i<=$('.subtitle').length; i++){
+    subtitle_block.append($('<p class="mokuji_content"><a href="#subtitle'+i+'">・'+$("#subtitle"+i).text()+"</a></p>"));
+  }
+  $('.mokuji_content').mouseover(function() {
+     $(this).attr('class', 'chage_color');
+  }).mouseout(function() {
+    $(this).attr('class', '');
+});
 </script>
 @endsection
