@@ -15,11 +15,11 @@ class ArticleController extends Controller
         $categories = ArticleCategory::get();
         return view('article.index', compact('articles', 'categories'));
     }
-    
+
     public function show($article_id)
     {
         $article = Article::find($article_id);
-        return view('article.detail', compact('article'));
+        return view('article.article_page', compact('article'));
     }
     public function test()
     {

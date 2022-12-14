@@ -16,11 +16,7 @@
 @section('content')
 <div class="flex">
   <div class="left">
-    <h1>Laravelを勉強してみて</h1>
-    {{-- <p>記事作成日： {{substr($article['created_at'], 0,10);}}</p> --}}
-    {{-- <p>補足説明：laravel1を勉強してみての感想 --}}
-    </p>
-    <hr noshade>
+    {{-- 記事ここから --}}
     <div class="block">
       <span class="subtitle" id="subtitle1">&emsp;Laravelとは</span>
       <hr noshade>
@@ -47,6 +43,7 @@
         spring(Java),Cakephp(php)などのwebフレームワークはmvcモデルを採用してるので何か一つ勉強していたら馴染みがありますね。
       </p>
     </div>
+    {{-- 記事ここまで --}}
   </div>
   <div class="right">
     <div class="mokuji">
@@ -55,8 +52,5 @@
     </div>
   </div>
 </div>
-<script>
-//subtitle一覧機能
 
-</script>
 @endsection
