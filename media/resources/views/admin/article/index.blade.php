@@ -1,31 +1,32 @@
 @extends('layouts.layout')
 
-@section('meta')
-@endsection
-
 @section('css')
-@vite(['resources/scss/app.scss'])
+@vite(['resources/scss/index.scss'])
 @endsection
-
-
 
 @section('content')
 <div class="flex">
   <div class="left">
-    <a href="{{route('article.create')}}">登録画面へ</a>
+    <a href="{{route('admin.article.create')}}">登録画面へ</a>
     <ul class="article_ul">
       @foreach ($articles as $article)
-      <li class="article_li">
-        <div class="block">
-        <p>titel: {{$article['title']}}</p>
-        <a href="{{route('article.show',$article['id'])}}">詳細へ</a>
-        </div>
-      </li>
+        <li class="article_li">
+          <a href="{{route('admin.article.show',$article['id'])}}">
+            <div class="block">
+              <div class="li_category flex">
+                <img src="/images/{{$article->articleCategory['name']}}.png" alt="" class="logo">
+              {{$article->articleCategory['name']}}
+              </div>
+              <div class="title">{{$article->article['title']}}</div>
+              <div class="description">{{$article->article['description']}}</div>
+            </div>
+          </a>
+        </li>
     @endforeach
     </ul>
   </div>
 
-  <div class="right block">
+  <div class="right category">
     <h3>カテゴリー</h3>
     <ul>
       @foreach ($categories as $category)

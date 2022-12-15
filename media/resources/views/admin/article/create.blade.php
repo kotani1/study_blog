@@ -1,21 +1,10 @@
 @extends('layouts.layout')
 
-@section('meta')
-@endsection
-
-@section('css')
-@vite(['resources/scss/app.scss'])
-@endsection
-
-@section('js')
-
-@endsection
-
 @section('content')
 <h1>登録画面</h1>
 <div>
-  <a href="{{route('article.index')}}">Topへ</a>
-  <form action="{{route('article.store')}}" method="post">
+  <a href="{{route('admin.article.index')}}">Topへ</a>
+  <form action="{{route('admin.article.store')}}" method="post">
     @csrf
     <div class="flex">
       <div class="db_table"><h3>articleテーブル</h3>

@@ -10,6 +10,7 @@ class LoginController extends Controller
 {
     public function __construct()
     {
+        //except('adminLogout')メソッド名
         $this->middleware('guest:admin')->except('adminLogout');
     }
     public function adminLogout(Request $request)

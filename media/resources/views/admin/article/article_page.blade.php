@@ -10,6 +10,15 @@
 
 
 @section('content')
+{{-- <form action="{{route('admin.article.edit')}}" method="post">
+  <button type="submit">変更する</button>
+</form> --}}
+<form action="{{route('admin.article.destroy',$article['id'])}}" method="post">
+  @csrf
+  @method('delete')
+  <button type="submit">削除する</button>
+</form>
+
 <div class="flex">
   <div class="left">
     {{-- 記事ここから --}}

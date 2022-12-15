@@ -4,7 +4,7 @@
 @endsection
 
 @section('css')
-@vite(['resources/scss/app.scss'])
+@vite(['resources/scss/index.scss'])
 @endsection
 
 

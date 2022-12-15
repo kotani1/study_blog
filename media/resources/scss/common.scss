@@ -2,24 +2,33 @@ body {
   margin: 0 30px 0 30px;
 }
 
-header{
+header {
   background-color: aqua;
   margin-bottom: 50px;
+
   li {
-      list-style: none;
-      margin-right: 20px;
-    }
+    list-style: none;
+    margin-right: 20px;
+  }
+
+  a:hover {
+    color: red;
+  }
 }
-.flex{
+
+.flex {
   display: flex;
 }
+
 .moji {
   font-size: 30px;
 }
-.article{
+
+.article {
   margin-bottom: 30px;
   border: 1px solid black;
 }
+
 .center {
   text-align: center;
 }

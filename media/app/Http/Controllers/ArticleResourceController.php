@@ -16,9 +16,10 @@ class ArticleResourceController extends Controller
      */
     public function index()
     {
-        $articles = Article::get();
+        // $articles = Article::get();
+        $articles = ArticleCategorySearch::get();
         $categories = ArticleCategory::get();
-        return view('article.index', compact('articles', 'categories'));
+        return view('admin.article.index', compact('articles', 'categories'));
     }
 
     /**
@@ -29,7 +30,7 @@ class ArticleResourceController extends Controller
     public function create()
     {
         $article_categories = ArticleCategory::get();
-        return view('create',compact('article_categories'));
+        return view('admin.article.create',compact('article_categories'));
     }
 
     /**
@@ -50,7 +51,7 @@ class ArticleResourceController extends Controller
             'article_id' => $article['id'],
             'article_category_id' => $request->category_id
         ]);
-        return redirect()->route('article.index');
+        return redirect()->route('admin.article.index');
     }
 
     /**
@@ -61,9 +62,8 @@ class ArticleResourceController extends Controller
      */
     public function show($article_id)
     {
-        dd('aaa');
         $article = Article::find($article_id);
-        return view('detail', compact('article'));
+        return view('admin.article.article_page', compact('article'));
     }
 
     /**
@@ -106,20 +106,20 @@ class ArticleResourceController extends Controller
     {
 
         Article::find($article_id)->delete();
-        ArticleCategorySearch::find($article_id)->delete();
-        return redirect()->route('article.index');
+        ArticleCategorySearch::where('article_id', '=', $article_id)->first()->delete();
+        return redirect()->route('admin.article.index');
     }
 
     public function article_category_search($category_id)
     {
         //
-        $articles_category = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
-        $a = $articles_category->first();
+        $article_categories = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
+        $a = $article_categories->first();
 
         //$aがnullの場合
         if(!isset($a)){
              $articles_category = null;
         }
-        return view('articleCategory', compact('articles_category'));
+        return view('articleCategory', compact('article_categories'));
     }
 }

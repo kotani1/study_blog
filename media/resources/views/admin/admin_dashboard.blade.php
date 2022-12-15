@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('admin.articles.index')}}">
+                <a href="{{route('admin.article.index')}}">
                     記事ページへ
                 </a>
             </li>

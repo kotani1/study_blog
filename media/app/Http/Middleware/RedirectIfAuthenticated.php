@@ -27,6 +27,8 @@ class RedirectIfAuthenticated
                     return redirect(RouteServiceProvider::ADMIN_HOME);
                 }
                 return redirect(RouteServiceProvider::HOME);
+            //  public const HOME = '/admin/login';
+            // public const ADMIN_HOME = '/admin/dashboard';
         }
 
         }

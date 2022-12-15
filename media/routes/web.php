@@ -41,21 +41,22 @@ Route::get('/article/article_category_search/{id}', 'App\Http\Controllers\Articl
 
 
 Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
+
   Route::get('login', function () {
     return view('admin.admin_login'); // blade.php
   })->middleware('guest:admin');
 
+  Route::group(['middleware' => 'auth:admin'], function () {
+    Route::get('dashboard', function () {
+      return view('admin.admin_dashboard');
+    });
+    Route::get('register', 'App\Http\Controllers\RegisterController@adminRegisterForm');
+    Route::post('register', 'App\Http\Controllers\RegisterController@adminRegister')->name('register');
+    Route::resource('article', 'ArticleResourceController');
+  });
+
   Route::get('logout', 'App\Http\Controllers\LoginController@adminLogout')->name('logout');
-
-  Route::get('register', 'App\Http\Controllers\RegisterController@adminRegisterForm')->middleware('auth:admin');
-
-  Route::get('dashboard', function () {
-    return view('admin.admin_dashboard');
-  })->middleware('auth:admin');
-
-  Route::post('register', 'App\Http\Controllers\RegisterController@adminRegister')->middleware('auth:admin')->name('register');
 
   Route::post('login', 'App\Http\Controllers\LoginController@adminLogin')->name('login');
 
-  Route::resource('articles', 'ArticleResourceController');
 });
