@@ -119,14 +119,14 @@ class ArticleResourceController extends Controller
     public function article_category_search($category_id)
     {
         //
-        $article_categories = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
-        $a = $article_categories->first();
-
+        $articles = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
+        $a = $articles->first();
+        $categories = ArticleCategory::get();
         //$aがnullの場合
         if(!isset($a)){
              $articles_category = null;
         }
-        return view('articleCategory', compact('article_categories'));
+        return view('admin.article.index', compact('articles', 'categories'));
     }
 
 }

@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<a href="{{route('article.index')}}">戻る</a>
+<a href="{{route('admin.article.index')}}">戻る</a>
     @isset($article_categories)
         @foreach ($article_categories as $article_category)
             <div class="article">

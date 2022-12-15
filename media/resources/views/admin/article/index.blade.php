@@ -35,7 +35,7 @@
     <ul>
       @foreach ($categories as $category)
         <li>
-          <a href="{{route('article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
+          <a href="{{route('admin.article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
         </li>
       @endforeach
     </ul>
