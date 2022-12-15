@@ -11,14 +11,18 @@
     <ul class="article_ul">
       @foreach ($articles as $article)
         <li class="article_li">
-          <a href="{{route('admin.article.show',$article['id'])}}">
+          <a href="{{route('admin.article.show',$article->article['id'])}}">
             <div class="block">
               <div class="li_category flex">
                 <img src="/images/{{$article->articleCategory['name']}}.png" alt="" class="logo">
               {{$article->articleCategory['name']}}
               </div>
               <div class="title">{{$article->article['title']}}</div>
-              <div class="description">{{$article->article['description']}}</div>
+              <div class="description">
+                <ul>
+                  {!!$article->article['description']!!}
+                </ul>
+              </div>
             </div>
           </a>
         </li>

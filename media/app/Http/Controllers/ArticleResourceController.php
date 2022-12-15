@@ -22,6 +22,12 @@ class ArticleResourceController extends Controller
         return view('admin.article.index', compact('articles', 'categories'));
     }
 
+    public function sort_new(Request $request)
+    {
+        $categories = ArticleCategory::get();
+        $articles = ArticleCategorySearch::orderBy('id', 'desc')->get();
+        return view('admin.article.index', compact('articles', 'categories'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -122,4 +128,5 @@ class ArticleResourceController extends Controller
         }
         return view('articleCategory', compact('article_categories'));
     }
+
 }

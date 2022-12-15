@@ -15,8 +15,7 @@
   <div class="left">
     <h1>タイトル</h1>
     {{-- <p>記事作成日： {{substr($article['created_at'], 0,10);}}</p> --}}
-    {{-- <p>補足説明：laravel1を勉強してみての感想 --}}
-    </p>
+    <p>補足説明：laravel1を勉強してみての感想</p>
     <hr noshade>
     <div class="block">
       <span class="subtitle" id="subtitle1">&emsp;サブタイトル</span>

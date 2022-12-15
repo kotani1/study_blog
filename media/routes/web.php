@@ -52,7 +52,9 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
     });
     Route::get('register', 'App\Http\Controllers\RegisterController@adminRegisterForm');
     Route::post('register', 'App\Http\Controllers\RegisterController@adminRegister')->name('register');
+    Route::get('article/sort_new', 'ArticleResourceController@sort_new')->name('article.sort_new');
     Route::resource('article', 'ArticleResourceController');
+
   });
 
   Route::get('logout', 'App\Http\Controllers\LoginController@adminLogout')->name('logout');

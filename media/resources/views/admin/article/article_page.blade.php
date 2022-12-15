@@ -24,7 +24,11 @@
     {{-- 記事ここから --}}
     <h1>{{$article['title']}}</h1>
     <p>記事作成日： {{substr($article['created_at'], 0,10);}}</p>
-    <p>補足説明： {{$article['description']}}</p>
+    <p>補足説明
+      <ul>
+         {!!$article['description']!!}
+      </ul>
+    </p>
     <hr noshade>
     {!!$article['body']!!}
   </div>
