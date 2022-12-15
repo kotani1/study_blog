@@ -124,7 +124,7 @@ class ArticleResourceController extends Controller
         $categories = ArticleCategory::get();
         //$aがnullの場合
         if(!isset($a)){
-             $articles_category = null;
+             $articles = null;
         }
         return view('admin.article.index', compact('articles', 'categories'));
     }

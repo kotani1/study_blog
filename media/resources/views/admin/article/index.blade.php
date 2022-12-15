@@ -8,6 +8,7 @@
 <div class="flex">
   <div class="left">
     <a href="{{route('admin.article.create')}}">登録画面へ</a>
+    @isset($articles)
     <ul class="article_ul">
       @foreach ($articles as $article)
         <li class="article_li">
@@ -28,6 +29,9 @@
         </li>
     @endforeach
     </ul>
+    @else
+        <h2>記事がありません</h2>
+    @endisset
   </div>
 
   <div class="right category">
