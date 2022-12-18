@@ -46,4 +46,8 @@ class ArticleController extends Controller
         $articles_category = ArticleCategorySearch::where('article_category_id', '=', $category_id)->orderBy('id', 'desc')->get();
         return view('article.articleCategory', compact('articles_category', 'category_id'));
     }
+    public function header()
+    {
+        return view('layouts.layout2');
+    }
 }

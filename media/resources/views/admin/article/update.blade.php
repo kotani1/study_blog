@@ -13,9 +13,9 @@
 @section('content')
 <h1>変更画面</h1>
 <div>
-  <a href="{{route('article.index')}}">Topへ</a>
+  <a href="{{route('admin.article.index')}}">Topへ</a>
 
-  <form action="{{route('article.update',$article['id'])}}" method="post">
+  <form action="{{route('admin.article.update',$article['id'])}}" method="post">
     @method('PUT')
     @csrf
     <p><label for="title">タイトル：<input type="text" id="title" name="title" value="{{$article['title']}}"></label></p>
@@ -28,7 +28,7 @@
     <option value="4">4</option>
     <option value="5">5</option>
     </select></p>
-    <button>変更する</button>
+    <button type="submit">変更する</button>
   </form>
 </div>
 @endsection

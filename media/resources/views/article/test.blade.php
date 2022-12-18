@@ -106,7 +106,6 @@
     </div>
   </div>
 </div>
-
 @endsection
 
 {{-- <div class="block">

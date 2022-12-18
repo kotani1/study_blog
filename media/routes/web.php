@@ -30,6 +30,7 @@ use PhpParser\Node\Expr\FuncCall;
 
 
 Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('article');
+Route::get('/article/header', 'App\Http\Controllers\ArticleController@header')->name('article.header');
 Route::get('/article/show/{article_id}', 'App\Http\Controllers\ArticleController@show')->name('article.show');
 Route::get('/article/test', 'App\Http\Controllers\ArticleController@test')->name('test');
 Route::get('/article/article-category-search/{category_slug}', 'App\Http\Controllers\ArticleController@article_category_search')->name('article.article-category-search');

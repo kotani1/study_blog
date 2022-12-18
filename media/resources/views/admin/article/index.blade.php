@@ -14,27 +14,24 @@
         <li class="article_li">
           <a href="{{route('admin.article.show',$article->article['id'])}}">
             <div class="block">
-              <div class="li_category flex">
+              <div class="block_upper_left flex">
                 <img src="/images/{{$article->articleCategory['name']}}.png" alt="" class="logo">
-              {{$article->articleCategory['name']}}
+                {{$article->articleCategory['name']}}
               </div>
               <div class="title">{{$article->article['title']}}</div>
-              <div class="description">
-                <ul>
-                  {!!$article->article['description']!!}
-                </ul>
-              </div>
+              <ul>{!!$article->article['description']!!}</ul>
             </div>
           </a>
         </li>
-    @endforeach
+      @endforeach
     </ul>
     @else
         <h2>記事がありません</h2>
     @endisset
   </div>
 
-  <div class="right category">
+  <div class="right">
+    <div class="category">
     <h3>カテゴリー</h3>
     <ul>
       @foreach ($categories as $category)
@@ -43,10 +40,7 @@
         </li>
       @endforeach
     </ul>
+    </div>
   </div>
 </div>
-@endsection
-
-@section('js')
-@vite(['resources/js/article.js'])
 @endsection

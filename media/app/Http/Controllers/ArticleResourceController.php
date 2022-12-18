@@ -81,7 +81,8 @@ class ArticleResourceController extends Controller
     public function edit($article_id)
     {
         $article = Article::find($article_id);
-        return view('update', compact('article'));
+        $article_categories = ArticleCategory::get();
+        return view('admin.article.update', compact('article', 'article_categories'));
     }
 
     /**
@@ -99,7 +100,7 @@ class ArticleResourceController extends Controller
             'description' => $request->description,
             'recommend_order' => $request->recommend_order,
         ]);
-        return redirect()->route('article.index');
+        return redirect()->route('admin.article.index');
     }
 
     /**

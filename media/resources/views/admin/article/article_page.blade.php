@@ -4,21 +4,20 @@
  @vite(['resources/scss/article.scss'])
 @endsection
 
-@section('js')
- @vite(['resources/js/article.js'])
-@endsection
+
 
 
 @section('content')
-{{-- <form action="{{route('admin.article.edit')}}" method="post">
-  <button type="submit">変更する</button>
-</form> --}}
-<form action="{{route('admin.article.destroy',$article['id'])}}" method="post">
+
+<button onclick="confirm_alert()">テスト</button>
+<form action="{{route('admin.article.destroy',$article['id'])}}" method="post"
+ onsubmit = "return confirm_alert()" id="delete">
   @csrf
   @method('delete')
   <button type="submit">削除する</button>
 </form>
 
+<a href="{{route('admin.article.edit',$article['id'])}}">変更する</a>
 <div class="flex">
   <div class="left">
     {{-- 記事ここから --}}
@@ -39,4 +38,11 @@
     </div>
   </div>
 </div>
+<script>
+
+</script>
+@endsection
+
+@section('js')
+ @vite(['resources/js/article.js'])
 @endsection
