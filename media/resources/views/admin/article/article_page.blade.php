@@ -9,9 +9,8 @@
 
 @section('content')
 
-<button onclick="confirm_alert()">テスト</button>
 <form action="{{route('admin.article.destroy',$article['id'])}}" method="post"
- onsubmit = "return confirm_alert()" id="delete">
+ onsubmit = "return confirm_alert('削除')" id="delete">
   @csrf
   @method('delete')
   <button type="submit">削除する</button>
@@ -30,6 +29,10 @@
     </p>
     <hr noshade>
     {!!$article['body']!!}
+    <div class="comment">
+      <h3>コメント</h3>
+      <textarea name="" id="" cols="30" rows="10" placeholder="コメントを入力"></textarea>
+    </div>
   </div>
   <div class="right">
     <div class="mokuji">
@@ -38,9 +41,6 @@
     </div>
   </div>
 </div>
-<script>
-
-</script>
 @endsection
 
 @section('js')

@@ -7,7 +7,8 @@
   <form action="{{route('admin.article.store')}}" method="post">
     @csrf
     <div class="flex">
-      <div class="db_table"><h3>articleテーブル</h3>
+      <div class="db_table">
+        <h3>articleテーブル</h3>
         <p>
           <label for="article_title">タイトル：<input type="text" id="article_title" name="article_title"></label>
         </p>
@@ -40,8 +41,16 @@
       <div class="db_table">
         <button type="submit">登録</button>
       </div>
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
-
+@endif
+    </div>
   </form>
   <style>
     select{

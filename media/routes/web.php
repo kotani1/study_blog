@@ -29,6 +29,7 @@ use PhpParser\Node\Expr\FuncCall;
 
 
 
+Route::get('/top', 'App\Http\Controllers\ArticleController@top');
 Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('article');
 Route::get('/article/header', 'App\Http\Controllers\ArticleController@header')->name('article.header');
 Route::get('/article/show/{article_id}', 'App\Http\Controllers\ArticleController@show')->name('article.show');

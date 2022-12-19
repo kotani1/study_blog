@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ArticleCategorySearch;
-
+use Illuminate\Support\Facades\Validator;
 class ArticleResourceController extends Controller
 {
     /**
@@ -16,7 +16,6 @@ class ArticleResourceController extends Controller
      */
     public function index()
     {
-        // $articles = Article::get();
         $articles = ArticleCategorySearch::get();
         $categories = ArticleCategory::get();
         return view('admin.article.index', compact('articles', 'categories'));
@@ -47,6 +46,24 @@ class ArticleResourceController extends Controller
      */
     public function store(Request $request)
     {
+         $rulus = [
+            'title' => ['required'],
+            'body' => ['required'],
+            'description' => ['required'],
+         ];
+
+            $message = [
+                'title.required' => 'タイトルを入力してください',
+                'body.required' => '本文を入力してください',
+                'description.required' => '概要を入力してください',
+            ];
+
+            $validator = Validator::make($request->all(), $rulus, $message);
+
+            if ($validator->fails()) {
+                return redirect('/admin/article/create')
+                ->withErrors($validator);
+            }
         $article = Article::create([
             'title' => $request->article_title,
             'body' => $request->article_body,
@@ -121,9 +138,12 @@ class ArticleResourceController extends Controller
     {
         //
         $articles = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
-        $a = $articles->first();
         $categories = ArticleCategory::get();
-        //$aがnullの場合
+
+        //記事の一件目を探す
+        $a = $articles->first();
+
+        //記事がないとき
         if(!isset($a)){
              $articles = null;
         }

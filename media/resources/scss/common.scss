@@ -38,6 +38,10 @@ header {
   text-align: center;
 }
 
+footer{
+  background-color: aqua;
+}
+
 
 //↓ドロップダウン
 .menu>li.menu__single {
@@ -47,7 +51,7 @@ header {
 .menu__second-level {
   position: absolute;
   top: 40px;
-  width: 100%;
+  width: 200px;
   background: rgb(0, 0, 130);
 }
 
@@ -66,7 +70,7 @@ header {
 
 .menu>li {
   float: left;
-  width: 150px;
+  width: 200px;
   /* グローバルナビ4つの場合 */
   height: 50px;
   line-height: 50px;
@@ -79,7 +83,7 @@ header {
 }
 
 .menu>li a:hover {
-  color: #999;
+  color: rgb(255, 255, 255);
 }
 
 ul.menu__second-level {
@@ -97,7 +101,7 @@ ul.menu__second-level {
 }
 
 .menu__second-level li a:hover {
-  background: #111;
+  background: rgb(44, 79, 184);
 }
 
 /* floatクリア */
@@ -111,13 +115,9 @@ ul.menu__second-level {
   clear: both;
 }
 
-.menu {
-  *zoom: 1;
-}
-
-
 .menu__single {
   text-align: center;
+  margin-right: 70px;
 }
 
 // /* 下矢印 */

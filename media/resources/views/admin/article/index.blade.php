@@ -16,7 +16,7 @@
             <div class="block">
               <div class="block_upper_left flex">
                 <img src="/images/{{$article->articleCategory['name']}}.png" alt="" class="logo">
-                {{$article->articleCategory['name']}}
+                <span class="logo_color">{{$article->articleCategory['name']}}</span>
               </div>
               <div class="title">{{$article->article['title']}}</div>
               <ul>{!!$article->article['description']!!}</ul>

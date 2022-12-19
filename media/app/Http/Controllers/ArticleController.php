@@ -11,7 +11,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::get();
+        $articles = ArticleCategorySearch::get();
         $categories = ArticleCategory::get();
         return view('article.index', compact('articles', 'categories'));
     }
@@ -37,17 +37,18 @@ class ArticleController extends Controller
         if (!isset($a)) {
             $articles_category = null;
         }
-        return view('article.articleCategory', compact('articles_category','category_id'));
+        return view('admin.article.index', compact('articles', 'categories'));
     }
 
-    public function sort_newest(Request $request)
+    public function sort_new(Request $request)
     {
-        $category_id = $request->category_id;
-        $articles_category = ArticleCategorySearch::where('article_category_id', '=', $category_id)->orderBy('id', 'desc')->get();
-        return view('article.articleCategory', compact('articles_category', 'category_id'));
+        $categories = ArticleCategory::get();
+        $articles = ArticleCategorySearch::orderBy('id', 'desc')->get();
+        return view('article.index', compact('articles', 'categories'));
     }
-    public function header()
+    public function top()
     {
-        return view('layouts.layout2');
+
+        return view('top');
     }
 }

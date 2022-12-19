@@ -22,7 +22,7 @@
             </li>
             <li>
                 <a href="{{route('admin.article.index')}}">
-                    記事ページへ
+                    勉強ブログへ
                 </a>
             </li>
         </ul>
