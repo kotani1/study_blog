@@ -25,19 +25,19 @@ class ArticleController extends Controller
     {
         return view('article.test');
     }
-    public function article_category_search(Request $request ,$category_id)
+    public function article_category_search($category_id)
     {
-        $articles_category = ArticleCategorySearch::where('article_category_id', '=',
-        $category_id)->get();
+        $articles = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
+        $categories = ArticleCategory::get();
 
         //記事の一件目を探す
-        $a = $articles_category->first();
+        $a = $articles->first();
 
         //記事がないとき
         if (!isset($a)) {
-            $articles_category = null;
+            $articles = null;
         }
-        return view('admin.article.index', compact('articles', 'categories'));
+        return view('article.index', compact('articles', 'categories'));
     }
 
     public function sort_new(Request $request)

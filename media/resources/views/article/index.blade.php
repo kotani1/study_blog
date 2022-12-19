@@ -11,7 +11,7 @@
     <ul class="article_ul">
       @foreach ($articles as $article)
         <li class="article_li">
-          <a href="{{route('admin.article.show',$article->article['id'])}}">
+          <a href="{{route('article.show',$article->article['id'])}}">
             <div class="block">
               <div class="block_upper_left flex">
                 <img src="/images/{{$article->articleCategory['name']}}.png" alt="" class="logo">
@@ -35,7 +35,7 @@
     <ul>
       @foreach ($categories as $category)
         <li>
-          <a href="{{route('admin.article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
+          <a href="{{route('article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
         </li>
       @endforeach
     </ul>
