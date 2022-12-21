@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="flex">
+{{-- <div class="flex">
   <div class="left">
     <a href="{{route('admin.article.create')}}">登録画面へ</a>
     @isset($articles)
@@ -48,7 +48,8 @@
     </ul>
     </div>
   </div>
-</div>
+</div> --}}
+<h1>aaaaaa</h1>
 @endsection
 
 @section('js')
