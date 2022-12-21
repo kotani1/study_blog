@@ -4,10 +4,3 @@ for (let i = 1; i <= $('.subtitle').length; i++) {
 }
 
 
-$('.mokuji_content').mouseover(function () {
-  $(this).attr('class', 'chage_color');
-}).mouseout(function () {
-  $(this).attr('class', '');
-});
-
-

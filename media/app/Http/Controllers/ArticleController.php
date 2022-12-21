@@ -49,6 +49,6 @@ class ArticleController extends Controller
     public function top()
     {
 
-        return view('top');
+        return view('top2');
     }
 }

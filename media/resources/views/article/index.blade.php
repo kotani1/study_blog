@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('css')
-@vite(['resources/scss/index.scss'])
+@vite(['resources/sass/index.scss'])
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
           <a href="{{route('article.show',$article->article['id'])}}">
             <div class="block">
               <div class="block_upper_left flex">
-                <img src="/images/{{$article->articleCategory['name']}}.png" alt="" class="logo">
+                {{-- <img src="/images/{{$article->articleCategory['slug']}}.png" alt="" class="logo"> --}}
                 <span class="logo_color">{{$article->articleCategory['name']}}</span>
               </div>
               <div class="title">{{$article->article['title']}}</div>
@@ -36,6 +36,7 @@
       @foreach ($categories as $category)
         <li>
           <a href="{{route('article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
+          if()
         </li>
       @endforeach
     </ul>

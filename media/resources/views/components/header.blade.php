@@ -4,8 +4,8 @@
     <li class="menu__single">
         <a href="#" class="init-bottom">このサイトについて</a>
         <ul class="menu__second-level">
-            <li><a href="/top">トップページ</a></li>
-            <li><a href="{{route('admin.article.index')}}">使っている技術</a></li>
+            <li><a href="/top">サイト紹介</a></li>
+            <li><a href="{{route('admin.article.index')}}">作り方</a></li>
             <li><a href="{{route('admin.article.sort_new')}}">お問い合わせ </a></li>
         </ul>
     </li>

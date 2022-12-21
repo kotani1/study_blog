@@ -64,6 +64,9 @@ a {
 
 .right {
   width: 20%;
+  li{
+    margin-bottom: 7px;
+  }
   .category{
     border: 2px solid black;
     position: sticky;
@@ -72,5 +75,8 @@ a {
   }
   a:hover{
     background-color: rgb(127, 192, 249);
+  }
+  .child{
+    margin-left: 20px;
   }
 }

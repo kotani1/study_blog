@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('css')
-@vite(['resources/scss/index.scss'])
+@vite(['resources/sass/index.scss'])
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
           <a href="{{route('admin.article.show',$article->article['id'])}}">
             <div class="block">
               <div class="block_upper_left flex">
-                <img src="/images/{{$article->articleCategory['name']}}.png" alt="" class="logo">
+                <img src="/images/{{$article->articleCategory['slug']}}.png" alt="" class="logo">
                 <span class="logo_color">{{$article->articleCategory['name']}}</span>
               </div>
               <div class="title">{{$article->article['title']}}</div>
@@ -35,12 +35,22 @@
     <h3>カテゴリー</h3>
     <ul>
       @foreach ($categories as $category)
-        <li>
-          <a href="{{route('admin.article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
-        </li>
+        @if($category['parent_article_category_id']==0)
+          <li id="{{$category['id']}}">
+            <a href="{{route('admin.article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
+          </li>
+        @else
+        <li class="child" name="{{$category['parent_article_category_id']}}">
+            <a href="{{route('admin.article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
+          </li>
+        @endif
       @endforeach
     </ul>
     </div>
   </div>
 </div>
+@endsection
+
+@section('js')
+@vite(['resources/js/index.js'])
 @endsection
