@@ -3,11 +3,7 @@
   margin-right: 60px;
   width: 75%;
 
-  p {
-    font-size: 20px;
-    letter-spacing: 2px;
-    line-height: 2;
-  }
+
 
   .subtitle {
     font-size: 30px;
@@ -20,6 +16,11 @@
   .block {
     margin-top: 60px;
     margin-bottom: 100px;
+    p {
+        font-size: 20px;
+        letter-spacing: 2px;
+        line-height: 2;
+      }
   }
   ol li{
     font-size: 20px;
