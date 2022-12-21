@@ -19,10 +19,13 @@ class ArticleCategorySeeder extends Seeder
         ArticleCategory::create([
             'name' => 'HTML',
             'slug' => 'html',
+            'parent_article_category_id' => 0
+
         ]);
         ArticleCategory::create([
             'name' => 'CSS',
             'slug' => 'css',
+            'parent_article_category_id' => 0
         ]);
 
     }
