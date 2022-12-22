@@ -86,6 +86,10 @@ class ArticleResourceController extends Controller
     public function show($article_id)
     {
         $article = Article::find($article_id);
+        $view_count = $article['view_count'];
+        $article->update([
+            'view_count' => $view_count+1,
+        ]);
         return view('admin.article.article_page', compact('article'));
     }
 

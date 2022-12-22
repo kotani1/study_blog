@@ -35,7 +35,9 @@ Route::get('/article/header', 'App\Http\Controllers\ArticleController@header')->
 Route::get('/article/show/{article_id}', 'App\Http\Controllers\ArticleController@show')->name('article.show');
 Route::get('/article/test', 'App\Http\Controllers\ArticleController@test')->name('test');
 Route::get('/article/article-category-search/{category_slug}', 'App\Http\Controllers\ArticleController@article_category_search')->name('article.article-category-search');
-Route::post('/article/article-category-search/{category_slug}/newest', 'App\Http\Controllers\ArticleController@sort_newest')->name('article.article-category-search.newest');
+
+Route::get('article/sort_new', 'ArticleResourceController@sort_new')->name('article.sort_new');
+Route::get('article/sort_view', 'ArticleController@sort_view')->name('article.sort_view');
 
 
 Route::get('/article/article_category_search/{id}', 'App\Http\Controllers\ArticleResourceController@article_category_search')->name('article_category_search');

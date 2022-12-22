@@ -19,6 +19,10 @@ class ArticleController extends Controller
     public function show($article_id)
     {
         $article = Article::find($article_id);
+        $view_count = $article['view_count'];
+        $article->update([
+            'view_count' => $view_count + 1,
+        ]);
         return view('article.article_page', compact('article'));
     }
     public function test()
@@ -44,6 +48,15 @@ class ArticleController extends Controller
     {
         $categories = ArticleCategory::get();
         $articles = ArticleCategorySearch::orderBy('id', 'desc')->get();
+        return view('article.index', compact('articles', 'categories'));
+    }
+    public function sort_view(Request $request)
+    {
+        $categories = ArticleCategory::get();
+        $articles = ArticleCategorySearch::select()
+        ->join('articles', 'article_category_searches.article_id', '=', 'articles.id')
+        ->orderBy('articles.view_count', 'desc')
+        ->get();
         return view('article.index', compact('articles', 'categories'));
     }
     public function top()
