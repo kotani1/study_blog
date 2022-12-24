@@ -13,16 +13,18 @@
     <div class="block">
       <span class="subtitle" id="subtitle1">&emsp;言語や環境ついて</span>
       <hr noshade>
-      <ul>
-        <li><p></p></li>
-      </ul>
+      <p>
+        <span class="common_line">ローカル</span><br>
+        ・XAMPP <br>
+        ・Composer <br>
+        ・Node.js(Sassを使うため)
+      </p>
     </div>
 
     <div class="block">
       <span class="subtitle" id="subtitle2">&emsp;手順</span>
       <hr noshade>
-      <p>大まかな順序を説明します。
-        環境は構築しているものとします。<br>
+      <p></p>
         <ol>
           <li>
            <p>データベース設計について<br>

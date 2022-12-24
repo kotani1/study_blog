@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
+  {{$articles}}
   <h1>ru-toseikou</h1>
 </body>
 </html>

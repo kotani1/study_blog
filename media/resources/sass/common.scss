@@ -20,6 +20,15 @@ header {
     color: red;
   }
 }
+.red_line{
+background: linear-gradient(transparent 60%, rgb(255, 102, 102) 60%);
+}
+.blue_line{
+background: linear-gradient(transparent 60%, rgb(83, 83, 246) 60%);
+}
+.common_line{
+background: linear-gradient(transparent 60%, rgb(137, 223, 38) 60%);
+}
 
 .flex {
   display: flex;

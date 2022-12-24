@@ -22,10 +22,7 @@
       <p>補足説明
         <ul>
           <li>
-            laravelのミドルウェアの使い方
-          </li>
-          <li>
-            バージョン：laravel9
+            Laravelのバージョン：9.41.0
           </li>
         </ul>
       </p>
@@ -33,20 +30,30 @@
     <div class="block">
       <span class="subtitle" id="subtitle1">&emsp;手順</span>
       <hr noshade>
+      <p>
+      ・このサイトで使ったテーブルやモデルをもとに解説していきます！
+      </p>
       <ol>
         <li>
-          <p>テーブル名のつけ方</p>
+          <p>リレーションシップとは？</p>
+        </li>
+        <li>
+          <p>カラム名のつけ方</p>
         </li>
         <li>
           <p>modelの書き方</p>
-        </li>
-        <li>
-          <p>表示の仕方</p>
         </li>
       </ol>
       <p>にわけて解説していきます。</p>
     </div>
 
+    <div class="block">
+      <span class="subtitle" id="subtitle2">&emsp;リレーションシップとは？</span>
+      <hr noshade>
+      <p>
+        二つのテーブルがあった時、そのテーブルどうしで関係性があることです。
+     </p>
+    </div>
 
     {{-- 記事ここまで --}}
   </div>

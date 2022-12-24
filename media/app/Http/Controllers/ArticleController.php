@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ArticleCategorySearch;
+use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends Controller
 {
@@ -62,6 +63,16 @@ class ArticleController extends Controller
     public function top()
     {
 
-        return view('top2');
+        return view('top');
+    }
+    public function making()
+    {
+
+        return view('making');
+    }
+    public function test_db()
+    {
+        $articles =  ArticleCategory::find(5)->articleCategorySearches()->get();
+        return view('aaa',compact('articles'));
     }
 }

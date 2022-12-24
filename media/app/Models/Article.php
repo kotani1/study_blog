@@ -15,8 +15,9 @@ class Article extends Model
     {
         return $query->where('id', '=', $num)->first();
     }
-    public function articleCategorySearches()
+    //リレーション
+    public function articleCategorySearch()
     {
-        return $this->hasMany(ArticleCategorySearch::class);
+        return $this->hasOne(ArticleCategorySearch::class);
     }
 }

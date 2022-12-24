@@ -29,13 +29,14 @@ use PhpParser\Node\Expr\FuncCall;
 
 
 
+Route::get('/test_db', 'App\Http\Controllers\ArticleController@test_db');
+Route::get('/making', 'App\Http\Controllers\ArticleController@making');
 Route::get('/top', 'App\Http\Controllers\ArticleController@top');
+Route::get('/contact', 'App\Http\Controllers\ArticleController@contact');
 Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('article');
-Route::get('/article/header', 'App\Http\Controllers\ArticleController@header')->name('article.header');
 Route::get('/article/show/{article_id}', 'App\Http\Controllers\ArticleController@show')->name('article.show');
 Route::get('/article/test', 'App\Http\Controllers\ArticleController@test')->name('test');
 Route::get('/article/article-category-search/{category_slug}', 'App\Http\Controllers\ArticleController@article_category_search')->name('article.article-category-search');
-
 Route::get('article/sort_new', 'ArticleResourceController@sort_new')->name('article.sort_new');
 Route::get('article/sort_view', 'ArticleController@sort_view')->name('article.sort_view');
 
