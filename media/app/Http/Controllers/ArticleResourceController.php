@@ -46,24 +46,24 @@ class ArticleResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //  $rulus = [
-        //     'title' => ['required'],
-        //     'body' => ['required'],
-        //     'description' => ['required'],
-        //  ];
+        $rulus = [
+        'article_title' => 'required',
+        'article_body' => 'required',
+        'article_description' => 'required',
+        ];
 
-        //     $message = [
-        //         'title.required' => 'タイトルを入力してください',
-        //         'body.required' => '本文を入力してください',
-        //         'description.required' => '概要を入力してください',
-        //     ];
+        $message = [
+            'article_title.required' => 'タイトルを入力してください',
+            'article_body.required' => '本文を入力してください',
+            'article_description.required' => '概要を入力してください',
+        ];
 
-        //     $validator = Validator::make($request->all(), $rulus, $message);
+        $validator = Validator::make($request->all(), $rulus, $message);
 
-        //     if ($validator->fails()) {
-        //         return redirect('/admin/article/create')
-        //         ->withErrors($validator);
-        //     }
+        if ($validator->fails()) {
+            return redirect('/admin/article/create')
+            ->withErrors($validator);
+        }
         $article = Article::create([
             'title' => $request->article_title,
             'body' => $request->article_body,
