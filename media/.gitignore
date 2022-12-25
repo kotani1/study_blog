@@ -2,6 +2,10 @@
 /public/build
 /public/hot
 /public/storage
+/resources/js
+/resources/sass
+/resources/view/admin
+/resources/view/local
 /storage/*.key
 /vendor
 .env
