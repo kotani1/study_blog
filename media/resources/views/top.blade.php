@@ -2,6 +2,7 @@
 
 @section('css')
  @vite(['resources/sass/article.scss'])
+ <link rel="stylesheet" href="/css/common.css">
 @endsection
 
 @section('content')
@@ -14,7 +15,7 @@
       <span class="subtitle" id="subtitle1">&emsp;このサイトについて</span>
       <hr noshade>
       <p>僕が日々勉強してきたことをブログ形式で記録していくサイトです。<br>
-        記事の内容は主にweb系の勉強をしてるのでhtml,css,javscript,php,sql等々です。現在はlaravelを勉強しているのでlaravelの記事が多いと思います。
+        記事の内容は主にweb系の勉強をしてるのでHTML,CSS,JavaScript,PHP等々です。現在はLaravelを勉強しているのでLaravelの記事が多いと思います。
       </p>
     </div>
 
@@ -22,7 +23,8 @@
       <span class="subtitle" id="subtitle2">&emsp;サイトを作った目的</span>
       <hr noshade>
       <p>
-        laravelの勉強をしていました。何かポートフォリオになるものを作ろうと思いこのサイトをつくりました。<br>
+        MENATAというサービスを使って現役のエンジニアの先輩に教えてもらうことになりました。
+        そこで何かポートフォリオになるものを作ろうと思いこのサイトをつくりました。<br>
         このサイトを作れば、ポートフォリオにもなるしブログを書くことで復習にもなって一石二鳥だなと思いました。<br>
         あとブログを書くことで、説明力を鍛えれたらいいな思いました。
       </p>
@@ -31,25 +33,17 @@
       <span class="subtitle" id="subtitle3">&emsp;使った言語</span>
       <hr noshade>
         <ul>
-          <li><p>html</p></li>
-          <li><p>scss(css)</p></li>
-          <li><p>laravel(php)</p></li>
-          <li><p>jquey(javascript)</p></li>
+          <li><p>HTML</p></li>
+          <li><p>Sass(CSS)</p></li>
+          <li><p>Laravel(PHP)</p></li>
+          <li><p>jQuey(JavaScript)</p></li>
         </ul>
         <p>詳しくはこちらの記事をご覧ください<br>
-          ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-          
+          ↓↓↓↓↓↓↓<br>
+          <a href="/making">サイトの作り方</a>
         </p>
     </div>
-    <div class="block">
-      <span class="subtitle" id="subtitle4">&emsp;作ってみた感想</span>
-      <hr noshade>
-       <p>
-        全体的に見た目のクオリティが低いな思いました。html&cssを毛嫌いした結果が出ました。
-        普段よく見るサイトがどれだけ見やすく作られているか思い知らされました。<br>
-        laravel以外にも学べたことがあったので作って良かったです。
-       </p>
-    </div>
+
   </div>
   <div class="right">
     <div class="mokuji">

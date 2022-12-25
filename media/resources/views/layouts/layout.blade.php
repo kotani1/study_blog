@@ -13,7 +13,6 @@
   @vite(['resources/js/common.js'])
   @yield('meta')
   @yield('css')
-  @yield('js')
   <title>@yield('title')</title>
 
 </head>

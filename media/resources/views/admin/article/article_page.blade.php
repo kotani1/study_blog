@@ -22,6 +22,7 @@
     {{-- 記事ここから --}}
     <h1>{{$article['title']}}</h1>
     <p>記事作成日： {{substr($article['created_at'], 0,10);}}</p>
+    <p>最新更新日 {{substr($article['updated_at'], 0,10);}}</p>
     <p>補足説明
       <ul>
          {!!$article['description']!!}

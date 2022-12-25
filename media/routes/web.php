@@ -33,35 +33,39 @@ Route::get('/test_db', 'App\Http\Controllers\ArticleController@test_db');
 Route::get('/making', 'App\Http\Controllers\ArticleController@making');
 Route::get('/top', 'App\Http\Controllers\ArticleController@top');
 Route::get('/contact', 'App\Http\Controllers\ArticleController@contact');
-Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('article');
-Route::get('/article/show/{article_id}', 'App\Http\Controllers\ArticleController@show')->name('article.show');
-Route::get('/article/test', 'App\Http\Controllers\ArticleController@test')->name('test');
-Route::get('/article/article-category-search/{category_slug}', 'App\Http\Controllers\ArticleController@article_category_search')->name('article.article-category-search');
-Route::get('article/sort_new', 'ArticleResourceController@sort_new')->name('article.sort_new');
-Route::get('article/sort_view', 'ArticleController@sort_view')->name('article.sort_view');
+Route::get('/test', 'App\Http\Controllers\ArticleController@test');
 
 
-Route::get('/article/article_category_search/{id}', 'App\Http\Controllers\ArticleResourceController@article_category_search')->name('article_category_search');
+
+
+Route::group(['prefix' => 'article', 'as' => 'article.'],function () {
+  Route::get('/', 'App\Http\Controllers\ArticleController@index')->name('index');
+  Route::get('/show/{article_id}', 'App\Http\Controllers\ArticleController@show')->name('show');
+  Route::get('/article-category-search/{category_slug}','App\Http\Controllers\ArticleController@article_category_search')->name('article-category-search');
+  Route::get('sort_new', 'ArticleController@sort_new')->name('sort_new');
+  Route::get('sort_view', 'ArticleController@sort_view')->name('sort_view');
+  Route::get('/article_category_search/{id}', 'App\Http\Controllers\ArticleResourceController@article_category_search')->name('article_category_search');
+});
 
 
 
 Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
-
   Route::get('login', function () {
-    return view('admin.admin_login'); // blade.php
+    return view('admin.admin_login'); 
   })->middleware('guest:admin');
 
   Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('dashboard', function () {
       return view('admin.admin_dashboard');
     });
+    Route::get('article/sort_new', 'ArticleResourceController@sort_new')->name('article.sort_new');
+    Route::get('article/article_category_search/{id}', 'App\Http\Controllers\ArticleResourceController@article_category_search')->name('article.article-category-search');
+    Route::resource('article', 'ArticleResourceController');
+
+
     Route::get('register', 'App\Http\Controllers\RegisterController@adminRegisterForm');
     Route::post('register', 'App\Http\Controllers\RegisterController@adminRegister')->name('register');
-    Route::get('article/sort_new', 'ArticleResourceController@sort_new')->name('article.sort_new');
 
-    Route::get('article/article_category_search/{id}', 'App\Http\Controllers\ArticleResourceController@article_category_search')->name('article.article-category-search');
-
-    Route::resource('article', 'ArticleResourceController');
 
   });
 
