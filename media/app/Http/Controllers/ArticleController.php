@@ -26,10 +26,7 @@ class ArticleController extends Controller
         ]);
         return view('article.article_page', compact('article'));
     }
-    public function test()
-    {
-        return view('article.test');
-    }
+
     public function article_category_search($category_id)
     {
         $articles = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
@@ -70,9 +67,5 @@ class ArticleController extends Controller
 
         return view('site.making');
     }
-    public function test_db()
-    {
-        $articles =  ArticleCategory::find(5)->articleCategorySearches()->get();
-        return view('aaa',compact('articles'));
-    }
+    
 }

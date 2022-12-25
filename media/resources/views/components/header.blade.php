@@ -12,9 +12,9 @@
     <li class="menu__single">
         <a href="#" class="init-bottom">記事</a>
         <ul class="menu__second-level">
-            <li><a href="{{route('admin.article.index')}}">一覧</a></li>
-            <li><a href="{{route('admin.article.sort_new')}}">最新記事順 </a></li>
-            <li><a href="{{route('article.sort_view')}}">閲覧順 </a></li>
+            <li><a href="{{route('article.index')}}">一覧</a></li>
+            <li><a href="{{route('article.sort_new')}}">最新記事順 </a></li>
+            <li><a href="{{route('sort_view')}}">閲覧順 </a></li>
         </ul>
     </li>
 
