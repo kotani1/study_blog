@@ -2,8 +2,6 @@
 /public/build
 /public/hot
 /public/storage
-/resources/js
-/resources/sass
 /resources/views/admin
 /storage/*.key
 /vendor

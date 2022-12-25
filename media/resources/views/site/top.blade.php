@@ -2,7 +2,6 @@
 
 @section('css')
  @vite(['resources/sass/article.scss'])
- <link rel="stylesheet" href="/css/common.css">
 @endsection
 
 @section('content')
