@@ -63,12 +63,12 @@ class ArticleController extends Controller
     public function top()
     {
 
-        return view('top');
+        return view('site.top');
     }
     public function making()
     {
 
-        return view('making');
+        return view('site.making');
     }
     public function test_db()
     {

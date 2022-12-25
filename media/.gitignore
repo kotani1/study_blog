@@ -5,7 +5,6 @@
 /resources/js
 /resources/sass
 /resources/views/admin
-/resources/views/local
 /storage/*.key
 /vendor
 .env
