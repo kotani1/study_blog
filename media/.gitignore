@@ -4,8 +4,8 @@
 /public/storage
 /resources/js
 /resources/sass
-/resources/view/admin
-/resources/view/local
+/resources/views/admin
+/resources/views/local
 /storage/*.key
 /vendor
 .env
