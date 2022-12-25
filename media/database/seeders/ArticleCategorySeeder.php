@@ -17,16 +17,15 @@ class ArticleCategorySeeder extends Seeder
     public function run()
     {
         ArticleCategory::create([
-            'name' => 'HTML',
-            'slug' => 'html',
+            'name' => 'JavaScript',
+            'slug' => 'javascript',
             'parent_article_category_id' => 0
 
         ]);
         ArticleCategory::create([
-            'name' => 'CSS',
-            'slug' => 'css',
+            'name' => 'PHP',
+            'slug' => 'php',
             'parent_article_category_id' => 0
         ]);
-
     }
 }
