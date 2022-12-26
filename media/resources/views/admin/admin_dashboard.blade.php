@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('admin.article.index')}}">
+                <a href="{{route('admin.article.create')}}">
                     勉強ブログへ
                 </a>
             </li>
