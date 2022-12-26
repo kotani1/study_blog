@@ -28,7 +28,7 @@
     <option value="4">4</option>
     <option value="5">5</option>
     </select></p>
-    <button type="submit">変更する</button>
+    <button type="submit">変更する!</button>
   </form>
 </div>
 @endsection
