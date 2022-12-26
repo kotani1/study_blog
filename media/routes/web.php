@@ -31,7 +31,7 @@ use PhpParser\Node\Expr\FuncCall;
 
 Route::get('/test_db', 'App\Http\Controllers\ArticleController@test_db');
 Route::get('/making', 'App\Http\Controllers\ArticleController@making');
-Route::get('/top', 'App\Http\Controllers\ArticleController@top');
+Route::get('/', 'App\Http\Controllers\ArticleController@top');
 Route::get('/contact', 'App\Http\Controllers\ArticleController@contact');
 Route::get('/test', 'App\Http\Controllers\ArticleController@test');
 
@@ -51,7 +51,7 @@ Route::group(['prefix' => 'article', 'as' => 'article.'],function () {
 
 Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
   Route::get('login', function () {
-    return view('admin.admin_login'); 
+    return view('admin.admin_login');
   })->middleware('guest:admin');
 
   Route::group(['middleware' => 'auth:admin'], function () {

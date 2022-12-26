@@ -27,9 +27,14 @@
         ・XAMPP <br>
         ・Composer <br>
         ・Node.js(Sassを使うため) <br>
+        <span class="common_line">本番環境</span><br>
+        ・AWS EC2(webサーバー) <br>
+        ・AWS RDS(データベース) <br>
+        ・Composer
         <span class="common_line">言語</span><br>
         ・HTML、Sass(CSS)、jQuery(JavaScript)、Laravel(PHP)
       </p>
+
     </div>
 
     <div class="block">
