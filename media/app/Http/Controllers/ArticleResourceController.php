@@ -153,13 +153,13 @@ class ArticleResourceController extends Controller
         }
         return view('admin.article.index', compact('articles', 'categories'));
     }
-    public function test()
-    {
-        return view('article.test');
-    }
     public function test_db()
     {
         $articles =  ArticleCategory::find(5)->articleCategorySearches()->get();
         return view('aaa', compact('articles'));
+    }
+    public function test()
+    {
+        return view('article_template');
     }
 }

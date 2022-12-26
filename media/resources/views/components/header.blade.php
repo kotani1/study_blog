@@ -4,7 +4,7 @@
     <li class="menu__single">
         <a href="#" class="init-bottom">このサイトについて</a>
         <ul class="menu__second-level">
-            <li><a href="/top">サイト紹介</a></li>
+            <li><a href="/">サイト紹介</a></li>
             <li><a href="/making">作り方</a></li>
             {{-- <li><a href="/contact">お問い合わせ </a></li> --}}
         </ul>

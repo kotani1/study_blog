@@ -28,6 +28,14 @@
         あとブログを書くことで、説明力を鍛えれたらいいな思いました。
       </p>
     </div>
+
+    <div class="block">
+      <span class="subtitle" id="subtitle2">&emsp;記事について</span>
+      <hr noshade>
+      <p>
+        ・復習を目的として記事をかいています。ですが完璧に理解できているわけではなく、ある程度理解できたら自分の言葉で記事を書くようにしています。なので記事の内容に間違いがあると思います。
+      </p>
+    </div>
     <div class="block">
       <span class="subtitle" id="subtitle3">&emsp;使った言語</span>
       <hr noshade>
