@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<h1>登録画面</h1>
+<h1>登録画面!</h1>
 <div>
   <a href="{{route('admin.article.index')}}">Topへ</a>
   <form action="{{route('admin.article.store')}}" method="post">
