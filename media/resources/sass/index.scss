@@ -11,9 +11,6 @@ a {
   width: 80%;
   margin-right: 50px;
 
-  li {
-    list-style: none;
-  }
 
   .article_ul {
     display: flex;
@@ -26,10 +23,17 @@ a {
   .article_li {
     margin-left: 20px;
     margin-bottom: 50px;
-    text-align: center;
     width: 45%;
     height: 200px;
     background-color: white;
+    list-style: none;
+  }
+  .article_title{
+    text-align: center;
+    font-size: 27px;
+  }
+  .article_description{
+    list-style: square;
   }
 
   .block {
@@ -41,9 +45,6 @@ a {
     border: 2px solid red;
   }
 
-  .title {
-    font-size: 27px;
-  }
 
   .logo {
     width: 40px;

@@ -17,8 +17,8 @@
                 <img src="/images/{{$article->articleCategory['slug']}}.png" alt="" class="logo">
                 <span class="logo_color">{{$article->articleCategory['name']}}</span>
               </div>
-              <div class="title">{{$article->article['title']}}</div>
-              <ul>{!!$article->article['description']!!}</ul>
+              <div class="article_title">{{$article->article['title']}}</div>
+              <p>・{{$article->article['description']}}</p>
             </div>
           </a>
         </li>

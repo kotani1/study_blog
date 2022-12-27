@@ -25,7 +25,6 @@
      <li>バージョン：laravel9</li>
      <li>管理画面機能で使っているmiddlewareを解説していきます。</li>
     </ul>
-    {{-- <p>記事作成日： {{substr($article['created_at'], 0,10);}}</p> --}}
     <div class="block"><span class="subtitle"id="subtitle1">&emsp;ミドルウェアとは？</span>
       <hr noshade>
       <p>
@@ -87,7 +86,12 @@
           管理者機能は$routeMiddlewareの'auth','guest'だからルート登録されてますね。
         </p>
     </div>
-    
+
+    <div class="block">
+      <span class="subtitle" id="subtitle5">&emsp;処理</span>
+      <hr noshade>
+      処理はhandleメソッドの中に書きます。
+    </div>
 
   </div>
   <div class="right">
