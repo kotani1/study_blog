@@ -46,6 +46,7 @@
       @endforeach
     </ul>
     </div>
+    <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
   </div>
 </div>
 @endsection

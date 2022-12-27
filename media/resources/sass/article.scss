@@ -1,7 +1,7 @@
 .left {
-  margin-left: 80px;
-  margin-right: 60px;
-  width: 75%;
+    width: 75%;
+    padding-right: 50px;
+    margin-left: 50px;
   .subtitle {
     font-size: 30px;
     border-left: 4px solid red;
@@ -58,8 +58,7 @@
 }
 
 .right {
-  width: 25%;
-  margin-right: 60px;
+    width: 25%;
   text-align: center;
 
   .mokuji {
