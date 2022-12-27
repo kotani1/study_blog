@@ -2,7 +2,9 @@
     width: 75%;
     padding-right: 50px;
     margin-left: 50px;
+
   .subtitle {
+    padding-left: 30px;
     font-size: 30px;
     border-left: 4px solid red;
   }
@@ -24,11 +26,6 @@
 
   ol li {
     font-size: 20px;
-  }
-
-  .double {
-    width: 45%;
-    height: 350px;
   }
 
   .single {
@@ -59,12 +56,14 @@
 
 .right {
     width: 25%;
-  text-align: center;
-
+    h2{
+      text-align: center;
+      border-bottom: 2px solid black;
+    }
   .mokuji {
     margin-left: 20px;
     width: 90%;
-    border: solid 1px black;
+    border: solid 2px black;
     position: sticky;
     top: 20px;
     max-height: 450px;

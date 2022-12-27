@@ -31,7 +31,7 @@
 
   <div class="right">
     <div class="category">
-    <h3>カテゴリー</h3>
+    <h2>カテゴリー</h2>
     <ul>
       @foreach ($categories as $category)
         @if($category['parent_article_category_id']==0)

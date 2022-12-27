@@ -21,7 +21,7 @@
       <li>バージョン：9.14.0</li>
     </ul>
 <div class="block">
-      <span class="subtitle" id="subtitle1">&emsp;手順</span>
+      <span class="subtitle" id="subtitle1">手順</span>
       <hr noshade>
       <p>
       ・このサイトで使ったテーブルやモデルをもとに解説していきます！
@@ -41,7 +41,7 @@
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle2">&emsp;リレーションシップとは？</span>
+      <span class="subtitle" id="subtitle2">リレーションシップとは？</span>
       <hr noshade>
       <p>
         二つのテーブルがあった時、そのテーブルどうしで関係性があることです。

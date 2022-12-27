@@ -23,12 +23,14 @@
     <p>補足説明：
         {!!$article['body']!!}
     </p>
- 
+
   </div>
   <div class="right">
     <div class="mokuji">
       <h2>目次</h2>
-      <div id="subtitle_block"></div>
+      <div id="subtitle_block">
+
+      </div>
     </div>
     <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
   </div>
