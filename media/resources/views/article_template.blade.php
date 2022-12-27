@@ -1,8 +1,5 @@
 @extends('layouts.layout')
 
-@section('meta')
-@endsection
-
 @section('css')
  @vite(['resources/sass/article.scss'])
 @endsection
@@ -19,78 +16,77 @@
 @section('content')
 <div class="flex">
   <div class="left">
-    <h1>タイトル</h1>
     <ul>
-     <li>laravelのミドルウェアの使い方</li>
-     <li>バージョン：laravel9</li>
-     <li>管理画面機能で使っているmiddlewareを解説していきます。</li>
-    </ul>
-    <div class="block"><span class="subtitle"id="subtitle1">&emsp;ミドルウェアとは？</span>
+     <li>このサイトを作るときに初めてSassを使いました。なので全然知識がないのでちょっと調べてみようかな思いました。</li>
+ </ul>
+<div class="block"><span class="subtitle"id="subtitle1">&emsp;Sassとは？</span>
       <hr noshade>
       <p>
-        Contorollerで処理する前にワンクッション挟んで処理を実行するやつ。 <br>
-        調べてみると・・・ <br>
-        ・HTTPリクエストが送られたタイミングで実行される処理を定義できる機能 <br>
-        ・コントローラ実行前(実行後)に処理を挟める <br>
-        ・認証機能などに使われている <br>
+       「Sass（サス、サース）」とは、CSSを拡張して、書きやすく、見やすくしたスタイルシートのことです。Syntactically Awesome StyleSheetの略で、直訳すると「文法的に素晴らしいスタイルシート」です。従来のCSSにデザイナーやプログラマーが抱いていた不満を解消するスタイルシートといえます。( <a href="https://udemy.benesse.co.jp/design/web-design/sass.html">引用</a> )
       </p>
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle2">&emsp;Middlewareを実際に使うまでの流れ</span>
+      <span class="subtitle" id="subtitle2">&emsp;Sassのメリット</span>
       <hr noshade>
-      <p>
-        <ol>
-          <li>ミドルウェアの作成（条件ファイルの作成）</li>
-          <li>ミドルウェアの登録</li>
-          <li>ミドルウェアをルートに適用</li>
-        </ol>
-      </p>
-      <p>
-        今回は管理者機能で使っているmiddlewareをメインに説明します。
-      </p>
+        <ul>
+          <li> <p>入れ子の使用が可能 </p></li>
+          <li> <p>変数を利用できる </p></li>
+          <li> <p>四則演算が可能 </p></li>
+          <li> <p>関数を使用できる </p></li>
+          <li> <p>ミックスイン・継承による効率化 </p></li>
+        </ul>
+        <p>プログラミングの特徴と同じですね。</p>
     </div>
     <div class="block">
-      <span class="subtitle" id="subtitle3">&emsp;管理者機能のmiddleware</span>
+      <span class="subtitle" id="subtitle3">&emsp;Sassの書き方「SASS」「SCSS」と</span>
       <hr noshade>
+      <p>Sassでは二通りの書き方があるみたいで</p>
+      <p><span class="common_line">sass記法</span></p>
       <pre>
-        <code class="php">
-          ->middleware('guest:admin')</code>
+        <code class="css">
+// $変数名: 値
+$font-default: Helvetica, sans-serif
+$text-color: #111
+
+body
+  font-family: $font-default
+  color: $text-color
+        </code>
       </pre>
+      <p><span class="common_line">scss記法</span></p>
       <pre>
-        <code class="php">
-          'middleware' => 'auth:admin'</code>
+        <code class="css">
+$font-default: Helvetica, sans-serif;
+$text-color: #111;
+
+body {
+  font-family: $font-default;
+  color: $text-color;
+}
+        </code>
       </pre>
-      <p>
-        二つのmiddlewareを使っています。 <br>
-        'auth','guest'がmiddlewareの名前、adminが引数です。
-      </p>
-    </div>
+      <p>このサイトではscss記法で書いています。なので個人的にはscss記法の方が見やすいですね</p>
+      </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle4">&emsp;ミドルウェアの登録</span>
+      <span class="subtitle" id="subtitle4">&emsp;Mixins</span>
       <hr noshade>
-      <p>
-        ミドルウェアをルートに登録する方法は３つある。<br>
-        いずれもApp\Http\Kernelクラスの中に記述する。（デフォルトでミドルウェアが登録されている。）
-        <ol>
-          <li>グローバル登録</li>
-          <p>app/Http/Kernel.phpの$middlewareプロパティに追加する。</p>
-          <li>ルート登録</li>
-          <p>各ルートに個別にミドルウェアを適用するには、app/Http/Kernel.phpの$routeMiddlewareプロパティに追加する。</p>
-          <li>グループ登録</li>
-          <p>app/Http/Kernel.phpの$middlewareGroupsプロパティに追加する。</p>
-        </ol>
-       </p>
-        <p>
-          管理者機能は$routeMiddlewareの'auth','guest'だからルート登録されてますね。
-        </p>
-    </div>
+      <p>複数のプロパティ宣言を一緒に再利用できるようにする仕組みです。<br>
+      @mixinと宣言してから、半角スペースを空けてmixinの名前を決めます。
+      その後に波括弧「{ }」のブロック内にスタイルを定義します。</p>
+      <pre>
+        <code class="css">
+@mixin baseButton($bg-color) {
+  border: 1px solid #333;
+  background-color: $bg-color;
+}
 
-    <div class="block">
-      <span class="subtitle" id="subtitle5">&emsp;処理</span>
-      <hr noshade>
-      処理はhandleメソッドの中に書きます。
+.danger-button {
+  <?='@'?>include baseButton(#ff0000);
+}
+        </code>
+      </pre>
     </div>
 
   </div>
@@ -99,6 +95,7 @@
       <h2>目次</h2>
       <div id="subtitle_block"></div>
     </div>
+    <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
   </div>
 </div>
 @endsection
