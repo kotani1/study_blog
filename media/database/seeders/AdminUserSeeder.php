@@ -17,16 +17,11 @@ class AdminUserSeeder extends Seeder
     public function run()
     {
         AdminUser::create([
-            'name' => 'owner',
-            'email' => 'owner@example.com',
-            'password' => Hash::make('password'),
+            'name' => 'kotani',
+            'email' => 'kotani@example.com',
+            'password' => Hash::make('kotani1234'),
             'admin_level' => 1,
         ]);
-        AdminUser::create([
-            'name' => 'sub',
-            'email' => 'sub@example.com',
-            'password' => Hash::make('password'),
-            'admin_level' => 0,
-        ]);
+
     }
 }
