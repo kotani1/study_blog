@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('css')
-@vite(['resources/sass/index.scss'])
+  @vite(['resources/sass/index.scss'])
 @endsection
 
 @section('content')

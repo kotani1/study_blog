@@ -57,6 +57,7 @@
       <h2>目次</h2>
       <div id="subtitle_block"></div>
     </div>
+    <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
   </div>
 </div>
 @endsection
