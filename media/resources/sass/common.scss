@@ -1,10 +1,14 @@
 body {
   margin: 0;
 }
+.aaa{
+  color: red;
+}
 
 header {
-  background-color: aqua;
+  background-color: black;
   margin-bottom: 50px;
+  color: #fff;
 
   li {
     list-style: none;
@@ -66,7 +70,7 @@ footer{
   position: absolute;
   top: 40px;
   width: 200px;
-  background: rgb(0, 0, 130);
+  background: rgb(33, 33, 228);
 }
 
 .menu__single:hover .menu__second-level {
@@ -87,7 +91,7 @@ footer{
   /* グローバルナビ4つの場合 */
   height: 50px;
   line-height: 50px;
-  background: rgb(0, 0, 130);
+  background: rgb(33, 33, 228);
 }
 
 .menu>li a {
@@ -95,9 +99,6 @@ footer{
   color: #fff;
 }
 
-.menu>li a:hover {
-  color: rgb(255, 255, 255);
-}
 
 ul.menu__second-level {
   visibility: hidden;
@@ -114,7 +115,7 @@ ul.menu__second-level {
 }
 
 .menu__second-level li a:hover {
-  background: rgb(44, 79, 184);
+  background: rgb(0, 0, 0);
 }
 
 /* floatクリア */
@@ -161,6 +162,7 @@ ul.menu__second-level {
   justify-content: center;
   align-items: center;
   z-index: 2;
+
 }
 
 .pagetop__arrow {

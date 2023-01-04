@@ -28,12 +28,9 @@ use PhpParser\Node\Expr\FuncCall;
 
 
 
-
-Route::get('/test_db', 'App\Http\Controllers\ArticleController@test_db');
-Route::get('/making', 'App\Http\Controllers\ArticleController@making');
-Route::get('/', 'App\Http\Controllers\ArticleController@top');
-Route::get('/contact', 'App\Http\Controllers\ArticleController@contact');
-Route::get('/test', 'App\Http\Controllers\ArticleResourceController@test');
+Route::get('/', 'App\Http\Controllers\ArticleController@top')->name('top');
+Route::get('/making', 'App\Http\Controllers\ArticleController@making')->name('making');
+Route::get('/test', 'App\Http\Controllers\ArticleResourceController@test')->name('test');
 
 
 

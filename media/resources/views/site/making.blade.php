@@ -20,7 +20,7 @@
     </ul>
     <hr noshade>
     <div class="block">
-      <span class="subtitle" id="subtitle1">&emsp;言語や環境ついて</span>
+      <span class="subtitle" id="subtitle1">言語や環境ついて</span>
       <hr noshade>
       <p>
         <span class="common_line">ローカル環境</span><br>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle2">&emsp;手順</span>
+      <span class="subtitle" id="subtitle2">手順</span>
       <hr noshade>
       <p></p>
         <ol>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle3">&emsp;データベースについて</span>
+      <span class="subtitle" id="subtitle3">データベースについて</span>
       <hr noshade>
       <ul>
         <li><p>このサイトでは3つのテーブルを使いました。<br>
@@ -90,7 +90,7 @@
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle4">&emsp;管理画面</span>
+      <span class="subtitle" id="subtitle4">管理画面</span>
       <hr noshade>
       <p>
         記事は一人で編集、投稿しているんですが勉強のために管理画面作ってみました。<br>
@@ -162,7 +162,7 @@ class ArticleCategorySearch extends Model
 
 
     <div class="block">
-      <span class="subtitle" id="subtitle6">&emsp;ルーティングについて</span>
+      <span class="subtitle" id="subtitle6">ルーティングについて</span>
       <hr noshade>
       <p>
         <span class="common_line">web.php</span>
@@ -204,7 +204,7 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle7">&emsp;Controllerについて</span>
+      <span class="subtitle" id="subtitle7">Controllerについて</span>
       <hr noshade>
       <ul>
         <li><p>ルーティングでRoute::resourceを使っているので基本的なCRUD処理を書いています。</p></li>
@@ -238,7 +238,7 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
       </ul>
     </div>
     <div class= "block">
-      <span class="subtitle" id="subtitle8">&emsp;Viewについて</span>
+      <span class="subtitle" id="subtitle8">Viewについて</span>
       <hr noshade>
       <img src="/images/site/making4.png" alt=""><br><br>
       <p>写真になりますが、@のが実行されてコード化できませんでした。
@@ -246,7 +246,7 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
     </div>
 
      <div class="block">
-      <span class="subtitle" id="subtitle9">&emsp;作ってみた感想</span>
+      <span class="subtitle" id="subtitle9">作ってみた感想</span>
       <hr noshade>
        <p>
         全体的に見た目のクオリティが低いな思いました。html&cssを毛嫌いした結果が出ました。

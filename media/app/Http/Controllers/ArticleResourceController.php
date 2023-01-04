@@ -24,6 +24,8 @@ class ArticleResourceController extends Controller
     public function sort_new(Request $request)
     {
         $categories = ArticleCategory::get();
+
+        //新しい順
         $articles = ArticleCategorySearch::orderBy('id', 'desc')->get();
         return view('admin.article.index', compact('articles', 'categories'));
     }
@@ -152,11 +154,6 @@ class ArticleResourceController extends Controller
              $articles = null;
         }
         return view('admin.article.index', compact('articles', 'categories'));
-    }
-    public function test_db()
-    {
-        $articles =  ArticleCategory::find(5)->articleCategorySearches()->get();
-        return view('aaa', compact('articles'));
     }
     public function test()
     {

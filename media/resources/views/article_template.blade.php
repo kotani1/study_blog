@@ -16,67 +16,166 @@
 @section('content')
 <div class="flex">
   <div class="left">
-
+    <h1>管理者機能</h1>
     <ul>
-      <li>バージョン：9.14.0</li>
+      <li></li>
     </ul>
 <div class="block">
-      <span class="subtitle" id="subtitle1">手順</span>
+      <span class="subtitle" id="subtitle1">概要</span>
       <hr noshade>
-      <p>
-      ・このサイトで使ったテーブルやモデルをもとに解説していきます！
+       <p>サイトを参考にしながら作りましたが、ほとんどコピペしただけなので挙動についての理解ができませんでした。<br>
+        なのでこの記事でわからないところ、気になったところを深堀していけたらいいなと思います。
       </p>
-      <ol>
-        <li>
-          <p>リレーションシップとは？</p>
-        </li>
-        <li>
-          <p>カラム名のつけ方</p>
-        </li>
-        <li>
-          <p>modelの書き方</p>
-        </li>
-      </ol>
-      <p>にわけて解説していきます。</p>
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle2">リレーションシップとは？</span>
+      <span class="subtitle" id="subtitle2">config/auth.phpの設定</span>
       <hr noshade>
-      <p>
-        二つのテーブルがあった時、そのテーブルどうしで関係性があることです。
-     </p>
+      <ul>
+        <li><p> <span class="common_line">ガード (guard)</span> <br>
+          Laravel では「認証」と呼ぶことが多いらしい。
+          ログインの種類を表す。 <br>
+           例：会員、管理者...
+        </p>
+        <pre>
+          <code>
+'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'admin' => [   // ここ追加
+            'driver' => 'session',
+            'provider' => 'admin_users', // providerに追加した名前
+        ],
+    ],
+          </code>
+        </pre>
+      </li>
+      <li>
+        <p><span class="common_line">ガードドライバ (driver)</span></p>
+        <p>ログインの認証状態をどうやって管理するか。多くの場合はセッション認証 (session) です。</p>
+        <p>デフォルトの"session"でok</p>
+      </li>
+        <li><p> <span class="common_line">プロバイダ (provider)</span> <br>
+         認証の方法。 <br>
+         つまり、誰 （モデル） をどんなロジック （プロバイダドライバ） で、ログインさせるか。
+        </p>
+        <pre>
+          <code>
+'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+        'admin_users' => [ // ここ追加
+            'driver' => 'eloquent',
+            'model' => App\Models\AdminUser::class, //make:modelしたクラス名
+        ],
+    ],
+          </code>
+        </pre>
+      </li>
+       <li>
+        <p><span class="common_line">プロバイダドライバ (driver)</span></p>
+        <p>ログイン認証の中核となるロジック。 <br>
+具体的には、パスワードをどのように検証し、 <br>
+ どのような条件ならログインを許可するか、等。 <br>
+実体は UserProvider クラスと Hasher クラスの組み合わせです。</p>
+        <p>デフォルトの"eloquent"でok</p>
+      </li>
+      </ul>
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle3">&emsp;カラム名のつけ方</span>
+      <span class="subtitle" id="subtitle3">&emsp;middlewareについて</span>
       <hr noshade>
-     <ul>
-      <li>
-        <p>articlesテーブル<br>
-       <span class="red_line">id</span>,title,body...省略
-        <p>
-      </li>
-      <li>
-        <p>article_categoriesテーブル<br>
-       <span class="blue_line">id</span>,name,slug...省略
-        <p>
-      </li>
-      <li>
-        <p>article_category_searchesテーブル<br>
-       id,<span class="red_line">article_id</span>,<span class="blue_line"> article_category_id</span>...省略
-        <p>
-      </li>
-     </ul>
-     <p>色が同じなのが結びついてるところです。 <br>
-     article_idやarticle_category_idのようにテーブル名_idとなっています。<br>
-     こう書くことでなんとLaravel側が自動でリレーションしてくれます！<br>
-     すごい便利ですね。
-     </p>
+      <p>web.php</p>
+      <pre>
+        <code class="php">
+          ->middleware('guest:admin');
+        </code>
+      </pre>
+      <p>guestがmiddlewareの名前, <br>
+        adminがmiddlewareの引数
+      </p>
+      <br>
+      <p>app\Http\Kernel.php</p>
+      <pre>
+        <code>
+ 'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        </code>
+      </pre>
+      <br>
+      <p>RedirectIfAuthenticated.php</p>
+      <pre>
+        <code class="php">
+  public function handle(Request $request, Closure $next, ...$guards)
+  {
+    $guards = empty($guards) ? [null] : $guards;
+
+    foreach ($guards as $guard) {
+        if (Auth::guard($guard)->check()) {
+            if ($guard === 'admin') { // 以下3行追記する
+                return redirect(RouteServiceProvider::ADMIN_HOME);
+            }
+            return redirect(RouteServiceProvider::HOME);
+            //  public const HOME = '/admin/login';
+            // public const ADMIN_HOME = '/admin/dashboard';
+      }
+
+    }
+    return $next($request);
+  }
+        </code>
+      </pre>
+      <p>check()でログインしているかチェックしている。ログインしていたらtrueを返す。</p>
+      <p>web.php</p>
+      <pre>
+        <code class="php">
+         'middleware' => 'auth:admin'
+        </code>
+      </pre>
+      <br>
+      <p>Authenticate.php</p>
+      <pre>
+        <code>
+    protected function redirectTo($request)
+    {
+      if (! $request->expectsJson()) {
+          return url('/');
+      }
+    }
+        </code>
+      </pre>
+      <p>元のコードです。 <br>
+       どうやらこれだとguardの情報を取得できないそうです。</p>
+       <br>
+       <pre>
+        <code class="php">
+    protected function unauthenticated($request, array $guards)
+    {
+      throw new AuthenticationException(
+          'Unauthenticated.',
+          $guards,
+          $this->redirectToOriginal($request, $guards)
+      );
+    }
+
+    protected function redirectToOriginal($request, array $guards)
+    {
+      foreach ($guards as $guard) {
+        if ($guard === 'admin') {
+            return route('admin.login');
+        }
+      }
+    }
+        </code>
+       </pre>
     </div>
 
     <div class="block">
-      <span class="subtitle" id="subtitle4">&emsp;modelの書き方</span>
+      <span class="subtitle" id="subtitle4">&emsp;</span>
       <hr noshade>
       <ul>
         <li>
