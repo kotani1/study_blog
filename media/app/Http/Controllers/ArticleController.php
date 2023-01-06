@@ -59,9 +59,7 @@ class ArticleController extends Controller
     }
     public function top()
     {
-
-        // return view('site.top');
-        return view('test');
+        return view('site.top');
     }
     public function making()
     {
