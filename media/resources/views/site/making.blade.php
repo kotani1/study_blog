@@ -100,7 +100,7 @@
       </p>
     </div>
     <div class="block">
-      <span class="subtitle" id="subtitle5">&emsp;Modelについて</span>
+      <span class="subtitle" id="subtitle5">Modelについて</span>
       <hr noshade>
       <p><span class="common_line">Article.php</span></p>
       <pre>

@@ -14,7 +14,7 @@
       <span class="subtitle" id="subtitle1">このサイトについて</span>
       <hr noshade>
       <p>僕が日々勉強してきたことをブログ形式で記録していくサイトです。<br>
-        記事の内容は主にweb系の勉強をしてるのでHTML,CSS,JavaScript,PHP等々です。現在はLaravelを勉強しているのでLaravelの記事が多いと思います。
+        記事の内容は主にweb系の勉強をしてるのでHTML,CSS,JavaScript,PHPなどを書いていくつもりです。現在はLaravelを勉強しているのでLaravelの記事を書きたいなと思います。
       </p>
     </div>
 
