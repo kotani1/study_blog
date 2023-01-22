@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+<div>
+  <h3>最近の状況</h3>
+</div>
 <div class="flex">
   <div class="left">
     <h1>サイト紹介</h1>

@@ -18,7 +18,9 @@
                 <span class="logo_color">{{$article->articleCategory['name']}}</span>
               </div>
               <div class="article_title">{{$article->article['title']}}</div>
-              <p>・{{$article->article['description']}}</p>
+              <ul>
+                <li>{{$article->article['description']}}</li>
+              </ul>
             </div>
           </a>
         </li>

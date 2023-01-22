@@ -17,6 +17,5 @@
             <li><a href="{{route('article.sort_view')}}">閲覧順 </a></li>
         </ul>
     </li>
-
   </ul>
 </header>
