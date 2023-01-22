@@ -21,7 +21,7 @@ class ArticleResourceController extends Controller
         return view('admin.article.index', compact('articles', 'categories'));
     }
 
-    public function sort_new(Request $request)
+    public function sort_new()
     {
         $categories = ArticleCategory::get();
 
@@ -85,9 +85,9 @@ class ArticleResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($article_id)
+    public function show($_article_id)
     {
-        $article = Article::find($article_id);
+        $article = Article::find($_article_id);
         $view_count = $article['view_count'];
         $article->update([
             'view_count' => $view_count+1,
@@ -101,9 +101,9 @@ class ArticleResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($article_id)
+    public function edit($_article_id)
     {
-        $article = Article::find($article_id);
+        $article = Article::find($_article_id);
         $article_categories = ArticleCategory::get();
         return view('admin.article.update', compact('article', 'article_categories'));
     }
@@ -115,9 +115,9 @@ class ArticleResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $article_id)
+    public function update(Request $request, $_article_id)
     {
-        Article::find($article_id)->update([
+        Article::find($_article_id)->update([
             'title' => $request->title,
             'body' => $request->body,
             'description' => $request->description,
@@ -132,18 +132,18 @@ class ArticleResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($article_id)
+    public function destroy($_article_id)
     {
 
-        Article::find($article_id)->delete();
-        ArticleCategorySearch::where('article_id', '=', $article_id)->first()->delete();
+        Article::find($_article_id)->delete();
+        ArticleCategorySearch::where('article_id', '=', $_article_id)->first()->delete();
         return redirect()->route('admin.article.index');
     }
 
-    public function article_category_search($category_id)
+    public function article_category_search($_category_id)
     {
         //
-        $articles = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
+        $articles = ArticleCategorySearch::where('article_category_id', '=', $_category_id)->get();
         $categories = ArticleCategory::get();
 
         //記事の一件目を探す

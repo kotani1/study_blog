@@ -11,6 +11,7 @@
     <ul class="article_ul">
       @foreach ($articles as $article)
         <li class="article_li">
+          {{-- 個々の記事ページへ --}}
           <a href="{{route('article.show',$article->article['id'])}}">
             <div class="block">
               <div class="block_upper_left flex">
@@ -36,6 +37,7 @@
     <h2>カテゴリー</h2>
     <ul>
       @foreach ($categories as $category)
+      {{-- カテゴリー親子 --}}
         @if($category['parent_article_category_id']==0)
           <li id="{{$category['id']}}">
             <a href="{{route('article.article-category-search',$category['id'])}}">{{$category['name']}}</a>
@@ -48,6 +50,7 @@
       @endforeach
     </ul>
     </div>
+    {{-- トップページへ移動 --}}
     <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
   </div>
 </div>

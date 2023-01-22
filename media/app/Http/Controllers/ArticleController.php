@@ -17,9 +17,9 @@ class ArticleController extends Controller
         return view('article.index', compact('articles', 'categories'));
     }
 
-    public function show($article_id)
+    public function show($_article_id)
     {
-        $article = Article::find($article_id);
+        $article = Article::find($_article_id);
         $view_count = $article['view_count'];
         $article->update([
             'view_count' => $view_count + 1,
@@ -27,9 +27,9 @@ class ArticleController extends Controller
         return view('article.article_page', compact('article'));
     }
 
-    public function article_category_search($category_id)
+    public function article_category_search($_category_id)
     {
-        $articles = ArticleCategorySearch::where('article_category_id', '=', $category_id)->get();
+        $articles = ArticleCategorySearch::where('article_category_id', '=', $_category_id)->get();
         $categories = ArticleCategory::get();
 
         //記事の一件目を探す
@@ -42,13 +42,13 @@ class ArticleController extends Controller
         return view('article.index', compact('articles', 'categories'));
     }
 
-    public function sort_new(Request $request)
+    public function sort_new()
     {
         $categories = ArticleCategory::get();
         $articles = ArticleCategorySearch::orderBy('id', 'desc')->get();
         return view('article.index', compact('articles', 'categories'));
     }
-    public function sort_view(Request $request)
+    public function sort_view()
     {
         $categories = ArticleCategory::get();
         $articles = ArticleCategorySearch::select()
