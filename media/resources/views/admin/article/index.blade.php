@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
+<a href="{{route('admin.article.create')}}">登録画面へ</a>
 <div class="flex">
-  <a href="{{route('admin.article.create')}}">登録画面へ</a>
   <div class="left">
     @isset($articles)
     <ul class="article_ul">
