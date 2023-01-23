@@ -8,11 +8,9 @@
 <div class="flex">
   <div class="left">
     <h1>サイト紹介</h1>
-    <span>2022年12月頃に書きました</span>
-    <hr noshade>
+    <span>2022年12月頃に書きました</span
     <div class="block">
       <span class="subtitle" id="subtitle1">このサイトについて</span>
-      <hr noshade>
       <p>僕が日々勉強してきたことをブログ形式で記録していくサイトです。<br>
         記事の内容は主にweb系の勉強をしてるのでHTML,CSS,JavaScript,PHPなどを書いていくつもりです。現在はLaravelを勉強しているのでLaravelの記事を書きたいなと思います。
       </p>
@@ -20,7 +18,6 @@
 
     <div class="block">
       <span class="subtitle" id="subtitle2">サイトを作った目的</span>
-      <hr noshade>
       <p>
         MENATAというサービスを使って現役のエンジニアの方Laravelを教えてもらうことになりました。
         そこで何かポートフォリオになるものを作ろうと思いこのサイトをつくりました。<br>
@@ -31,14 +28,12 @@
 
     <div class="block">
       <span class="subtitle" id="subtitle3">記事について</span>
-      <hr noshade>
       <p>
         ・復習を目的として記事をかいています。ですが完璧に理解できているわけではなく、ある程度理解できたら自分の言葉で記事を書くようにしています。なので記事の内容に間違いがあると思います。
       </p>
     </div>
     <div class="block">
       <span class="subtitle" id="subtitle4">使った言語</span>
-      <hr noshade>
         <ul>
           <li><p>HTML</p></li>
           <li><p>Sass(CSS)</p></li>
