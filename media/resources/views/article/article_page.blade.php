@@ -28,9 +28,9 @@
   <div class="right">
     <div class="mokuji">
       <h2>目次</h2>
-      <div id="subtitle_block">
+      <ul id="subtitle_block">
 
-      </div>
+      </ul>
     </div>
     <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
   </div>

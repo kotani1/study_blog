@@ -261,7 +261,7 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
   <div class="right">
     <div class="mokuji">
       <h2>目次</h2>
-      <div id="subtitle_block"></div>
+      <ul id="subtitle_block"></ul>
     </div>
     <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
   </div>
