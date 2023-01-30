@@ -11,128 +11,85 @@
 @endsection
 
 
+ {{-- <div class="block">
+        <span class="subtitle" id="subtitle1"></span>
+        <ul>
+          <li><p></p></li>
+        </ul>
+      </div> --}}
+
 
 
 @section('content')
 <div class="flex">
   <div class="left">
 
-    <h1>VSCodeの便利なショートカット</h1>
+    <h1>記事の最終更新日が勝手に更新される</h1>
+    <ul>
+      <li>バージョン:9.41.0</li>
+    </ul>
       <div class="block">
         <span class="subtitle" id="subtitle1">概要</span>
-
         <ul>
           <li>
             <p>
-              普段はVSCodeを使って開発をしています。ショートカットを使うことで効率的なコーディングができると思います。なので今回で色々調べて使いこなせるようになりたいです。
+              このサイトの記事の最終更新日が勝手に更新されていました。 <br>
+              そもそも最終更新日を書いている理由は記事の情報を時間の面で判断するために書いています。作成日が古いけど、最終更新日が最近だったらまだ信用性があるなみたいな感じです。
             </p>
           </li>
         </ul>
       </div>
 
       <div class="block">
-        <span class="subtitle" id="subtitle2">よく使うもの</span>
+        <span class="subtitle" id="subtitle2">解決方法</span>
         <ul>
           <li>
-            <p>
-              Ctrl+c <br>
-              コピー
-            </p>
+           <p>調べたところ色々ありました。 <br>
+          appからコントローラー名のパスを記述するやり方や <br>
+          useを使うやり方などがありました。
+         </p>
           </li>
           <li>
-            <p>
-              Ctrl+v <br>
-              貼り付け
-            </p>
+            <p>今回はapp\Providers\RouteServiceProvider.phpを書き換えるやり方にします。</p>
           </li>
           <li>
-            <p>
-              Ctrl+z <br>
-               一度前の処理に戻る
-            </p>
-          </li>
-          <li>
-            <p>
-              Alt + Shift + ↑ or ↓ <br>
-              カーソルの行または選択したものを丸々コピーする。
-            </p>
+            <p>ちなみにLaravel7まではコントローラー名だけでもエラーは出ないそうです。</p>
           </li>
         </ul>
       </div>
 
       <div class="block">
-        <span class="subtitle" id="subtitle3">基本操作</span>
-        <ul>
-          <li>
+        <span class="subtitle" id="subtitle3">app\Providers\RouteServiceProvider.php</span>
             <p>
-             Ctrl+p <br>
-             クイックオープンウィンドウ <br>
-             クイックオープンウィンドウは、画面上部に開く入力窓でファイルを開いたり、指定した行にジャンプしたりする事が出来きます。ここで>と入力すると、コマンドパレットのようにVSCodeの機能を検索する事が出来ます。使い方はクイックオープンウィンドウで?を入力すると表示されます。
+              <pre>
+                <code>
+   protected $namespace = 'App\Http\Controllers'; //追加
+    public function boot()
+    {
+      $this->configureRateLimiting();
+
+      $this->routes(function () {
+          Route::middleware('api')
+              ->prefix('api')
+              ->namespace($this->namespace) //追加
+              ->group(base_path('routes/api.php'));
+
+          Route::middleware('web')
+              ->namespace($this->namespace) //追加
+              ->group(base_path('routes/web.php'));
+      });
+    }
+                </code>
+              </pre>
             </p>
-          </li>
-          <li><p>Ctrl + b <br>
-            サイドバーの開閉
-          </p></li>
-          <li><p>Ctrl + tab <br>
-            タブの移動
-          </p></li>
-        </ul>
+            <ul>
+              <li>
+                <p>$namespaceでAppからコントロールのパスを記述し、$namespaceを通ってからweb.phpに行く感じですね。</p>
+              </li>
+            </ul>
       </div>
 
-      <div class="block">
-        <span class="subtitle" id="subtitle4">コーディング</span>
 
-        <ul>
-          <li>
-            <p>Alt + ↑ or ↓ <br>
-              選択行の移動
-          </p></li>
-          <li>
-            <p>タグで囲む <br>
-              1:Ctrl + Shift + p でコマンドパレットを開く <br>
-              2:wrapと入力 <br>
-              3:タグを入力。親要素>子要素.クラス名みたいな感じで。<br>
-              例：ul>li*.test、*は全要素
-            </p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="block">
-        <span class="subtitle" id="subtitle5">文字の置き換え、検索</span>
-        <ul>
-          <li>
-           <p>Ctrl + h <br>
-            文字の置き換え
-          </p>
-          </li>
-          <li>
-           <p>Ctrl + f <br>
-            文字の検索
-          </p>
-          <p>文字の置き換えや検索は、キー操作を行ってから文字列を入力して実行する方法と先に文字列を選択してから実行する方法があります。文字列を先に選択してから実行すると、入力窓に文字列が表示された状態で実行する事が出来ます。</p>
-          </li>
-          <li>
-            <p>Ctrl + Shift + h <br>
-            ワークスペース全体の置き換え
-          </p>
-          </li>
-          <li>
-            <p>Ctrl + Shift + f <br>
-            ワークスペース全体の検索
-          </p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="block">
-        <span class="subtitle" id="subtitle6">まとめ</span>
-        <ul>
-          <li><p>調べたところたくさんありました。なので今のところ使えそうなものをピックアップしました。<br>
-            文字の置き換えはすごい役立つだろうなと思いました。
-          </p></li>
-        </ul>
-      </div>
 
 
   </div> {{--  leftのdiv  --}}
