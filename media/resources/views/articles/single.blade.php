@@ -17,7 +17,6 @@
 <div class="flex">
   <div class="left">
     <div id="article">
-      <h1>test</h1>
     </div>
 
   </div>
