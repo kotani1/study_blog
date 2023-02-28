@@ -18,30 +18,29 @@ use PhpParser\Node\Expr\FuncCall;
 // Route::get('/', function () {
 //     return view('welcome');
 // // });
-// Route::get('/', 'App\Http\Controllers\TopController@index')->name('top');
-// Route::post('/create', 'App\Http\Controllers\TopController@create')->name('create');
-// Route::get('/submit', 'App\Http\Controllers\TopController@submit')->name('submit');
-// Route::get('/update/{id}', 'App\Http\Controllers\TopController@update')->name('update');
-// Route::post('/update_exe/{id}', 'App\Http\Controllers\TopController@update_exe')->name('update_exe');
-// Route::get('/delete/{id}', 'App\Http\Controllers\TopController@delete')->name('delete');
-// Route::get('/detail/{id}', 'App\Http\Controllers\TopController@detail')->name('detail');
+// Route::get('/', 'TopController@index')->name('top');
+// Route::post('/create', 'TopController@create')->name('create');
+// Route::get('/submit', 'TopController@submit')->name('submit');
+// Route::get('/update/{id}', 'TopController@update')->name('update');
+// Route::post('/update_exe/{id}', 'TopController@update_exe')->name('update_exe');
+// Route::get('/delete/{id}', 'TopController@delete')->name('delete');
+// Route::get('/detail/{id}', 'TopController@detail')->name('detail');
 
 
 
-Route::get('/', 'App\Http\Controllers\ArticleController@top')->name('top');
-Route::get('/making', 'App\Http\Controllers\ArticleController@making')->name('making');
-Route::get('/test', 'App\Http\Controllers\ArticleResourceController@test')->name('test');
+Route::get('/', 'ArticleController@top')->name('top');
+Route::get('/making', 'ArticleController@making')->name('making');
+Route::get('/test', 'AdminArticleResourceController@test')->name('test');
 
 
 
-
+//記事に関して
 Route::group(['prefix' => 'article', 'as' => 'article.'],function () {
-  Route::get('/', 'App\Http\Controllers\ArticleController@index')->name('index');
-  Route::get('/show/{article_id}', 'App\Http\Controllers\ArticleController@show')->name('show');
-  Route::get('/article-category-search/{category_slug}','App\Http\Controllers\ArticleController@article_category_search')->name('article-category-search');
-  Route::get('sort_new', 'ArticleController@sort_new')->name('sort_new');
-  Route::get('sort_view', 'ArticleController@sort_view')->name('sort_view');
-  Route::get('/article_category_search/{id}', 'App\Http\Controllers\ArticleResourceController@article_category_search')->name('article_category_search');
+  Route::get('/', 'ArticleController@article_list')->name('index');
+  Route::get('single', 'ArticleController@article_single')->name('show');
+  Route::get('/category-search','ArticleController@article_category_search');
+  Route::get('sort-new', 'ArticleController@sort_new')->name('sort_new');
+  Route::get('sort-view', 'ArticleController@sort_view')->name('sort_view');
 });
 
 
@@ -55,19 +54,20 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
     Route::get('dashboard', function () {
       return view('admin.admin_dashboard');
     });
-    Route::get('article/sort_new', 'ArticleResourceController@sort_new')->name('article.sort_new');
-    Route::get('article/article_category_search/{id}', 'App\Http\Controllers\ArticleResourceController@article_category_search')->name('article.article-category-search');
-    Route::resource('article', 'ArticleResourceController');
+    Route::get('article/sort_new', 'AdminArticleResourceController@sort_new')->name('article.sort_new');
+    Route::get('article/article_category_search/{id}', 'AdminArticleResourceController@article_category_search')->name('article.article-category-search');
+    Route::resource('article', 'AdminArticleResourceController');
 
 
-    Route::get('register', 'App\Http\Controllers\RegisterController@adminRegisterForm');
-    Route::post('register', 'App\Http\Controllers\RegisterController@adminRegister')->name('register');
+    Route::get('register', 'RegisterController@adminRegisterForm');
+    Route::post('register', 'RegisterController@adminRegister')->name('register');
 
 
   });
 
-  Route::get('logout', 'App\Http\Controllers\LoginController@adminLogout')->name('logout');
+  Route::get('logout', 'LoginController@adminLogout')->name('logout');
 
-  Route::post('login', 'App\Http\Controllers\LoginController@adminLogin')->name('login');
+  Route::post('login', 'LoginController@adminLogin')->name('login');
 
 });
+Route::get('tes', 'LoginController@tes');

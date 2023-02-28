@@ -52,4 +52,8 @@ class LoginController extends Controller
         ]);
     }
 
+    public function tes()
+    {
+        return view('test');
+    }
 }

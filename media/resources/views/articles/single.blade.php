@@ -16,13 +16,15 @@
 @section('content')
 <div class="flex">
   <div class="left">
+    <div id="article">
+
+    </div>
     {{-- 記事ここから --}}
-    <h1>{{$article['title']}}</h1>
+    {{-- <h1 id="article_id"></h1>
     <p>記事作成日： {{substr($article['created_at'], 0,10);}}</p>
     <p>補足説明：
         {!!$article['body']!!}
-    </p>
-
+    </p> --}}
   </div>
   <div class="right">
     <div class="mokuji">
@@ -38,4 +40,5 @@
 
 @section('js')
  @vite(['resources/js/article.js'])
+ @vite(['resources/js/article_single.js'])
 @endsection

@@ -10,52 +10,35 @@ use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function article_list()
     {
-        $articles = ArticleCategorySearch::get();
-        $categories = ArticleCategory::get();
-        return view('article.index', compact('articles', 'categories'));
+        return view('articles.index');
     }
 
-    public function show($_article_id)
+    public function article_single()
     {
-        $article = Article::find($_article_id);
-        $view_count = $article['view_count'];
-        $article->update([
-            'view_count' => $view_count + 1,
-        ]);
-        return view('article.article_page', compact('article'));
+        return view('articles.single');
     }
 
-    public function article_category_search($_category_id)
+    public function article_category_search()
     {
-        $articles = ArticleCategorySearch::where('article_category_id', '=', $_category_id)->get();
-        $categories = ArticleCategory::get();
-
-        //記事の一件目を探す
-        $a = $articles->first();
-
-        //記事がないとき
-        if (!isset($a)) {
-            $articles = null;
-        }
-        return view('article.index', compact('articles', 'categories'));
+        return view('articles.by_category');
     }
 
     public function sort_new()
     {
         $categories = ArticleCategory::get();
         $articles = ArticleCategorySearch::orderBy('id', 'desc')->get();
-        return view('article.index', compact('articles', 'categories'));
+        return view('articles.sort_new');
     }
     public function sort_view()
     {
-        $categories = ArticleCategory::get();
-        $articles = ArticleCategorySearch::select()
-        ->join('articles', 'article_category_searches.article_id', '=', 'articles.id')
-        ->orderBy('articles.view_count', 'desc')
-        ->get();
-        return view('article.index', compact('articles', 'categories'));
+        // $categories = ArticleCategory::get();
+        // $articles = ArticleCategorySearch::select()
+        // ->join('articles', 'article_category_searches.article_id', '=', 'articles.id')
+        // ->orderBy('articles.view_count', 'desc')
+        // ->get();
+        return view('articles.sort_view',);
     }
     public function top()
     {

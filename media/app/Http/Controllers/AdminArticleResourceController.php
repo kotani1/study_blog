@@ -7,7 +7,7 @@ use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\ArticleCategorySearch;
 use Illuminate\Support\Facades\Validator;
-class ArticleResourceController extends Controller
+class AdminArticleResourceController extends Controller
 {
     /**
      * Display a listing of the resource.
