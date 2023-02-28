@@ -34,6 +34,6 @@
 @endsection
 
 @section('js')
- {{-- @vite(['resources/js/article_single.js']) --}}
+ @vite(['resources/js/article_single.js'])
  @vite(['resources/js/article.js'])
 @endsection
