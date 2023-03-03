@@ -16,11 +16,6 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('admin.register')}}">
-                    アカウント作成
-                </a>
-            </li>
-            <li>
                 <a href="{{route('admin.article.create')}}">
                     勉強ブログへ
                 </a>

@@ -19,40 +19,35 @@ class ArticleCategorySeeder extends Seeder
         ArticleCategory::create([
             'name' => 'HTML',
             'slug' => 'html',
-            'parent_article_category_id' => 0
 
         ]);
         ArticleCategory::create([
             'name' => 'CSS',
             'slug' => 'css',
-            'parent_article_category_id' => 0
 
         ]);
         ArticleCategory::create([
             'name' => 'JavaScript',
             'slug' => 'javascript',
-            'parent_article_category_id' => 0
 
         ]);
         ArticleCategory::create([
             'name' => 'PHP',
             'slug' => 'php',
-            'parent_article_category_id' => 0
         ]);
         ArticleCategory::create([
             'name' => 'Laravel',
             'slug' => 'laravel',
-            'parent_article_category_id' => 4
+            'parent_article_name' => 'PHP'
         ]);
         ArticleCategory::create([
             'name' => 'Sass',
             'slug' => 'sass',
-            'parent_article_category_id' => 2
-        ]);
+            'parent_article_name' => 'CSS'
+       ]);
         ArticleCategory::create([
             'name' => 'その他',
             'slug' => 'etc',
-            'parent_article_category_id' => 0
         ]);
     }
 }

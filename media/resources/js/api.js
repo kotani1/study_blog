@@ -1,6 +1,6 @@
-function apiConnect(api_url,createElementFunc) {
+function apiConnect(url_api,createElementFunc) {
   $.ajax({
-    url: api_url,
+    url: url_api,
     type: 'GET',	//GET、POST
     dataType: 'json',	//text, html, xml, json, jsonp, script
   }).done(function (data) {

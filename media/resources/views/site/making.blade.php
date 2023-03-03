@@ -18,10 +18,10 @@
       <li>2022年12月頃に書きました</li>
       <li>サイトの作り方を復習もかねて説明します。</li>
     </ul>
-    
+
     <div class="block">
       <span class="subtitle" id="subtitle1">言語や環境ついて</span>
-      
+
       <p>
         <span class="common_line">ローカル環境</span><br>
         ・XAMPP <br>
@@ -40,7 +40,7 @@
 
     <div class="block">
       <span class="subtitle" id="subtitle2">手順</span>
-      
+
       <p></p>
         <ol>
           <li>
@@ -71,7 +71,7 @@
 
     <div class="block">
       <span class="subtitle" id="subtitle3">データベースについて</span>
-      
+
       <ul>
         <li><p>このサイトでは3つのテーブルを使いました。<br>
            <span class="common_line">aticlesテーブル </span> <br>
@@ -91,7 +91,7 @@
 
     <div class="block">
       <span class="subtitle" id="subtitle4">管理画面</span>
-      
+
       <p>
         記事は一人で編集、投稿しているんですが勉強のために管理画面作ってみました。<br>
         こちらのサイトを参考にしました。↓↓↓<br>
@@ -101,7 +101,7 @@
     </div>
     <div class="block">
       <span class="subtitle" id="subtitle5">Modelについて</span>
-      
+
       <p><span class="common_line">Article.php</span></p>
       <pre>
         <code class="php">
@@ -163,7 +163,7 @@ class ArticleCategorySearch extends Model
 
     <div class="block">
       <span class="subtitle" id="subtitle6">ルーティングについて</span>
-      
+
       <p>
         <span class="common_line">web.php</span>
       </p>
@@ -205,7 +205,7 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
 
     <div class="block">
       <span class="subtitle" id="subtitle7">Controllerについて</span>
-      
+
       <ul>
         <li><p>ルーティングでRoute::resourceを使っているので基本的なCRUD処理を書いています。</p></li>
         <li><p> <span class="common_line">最新記事順</span></p>
@@ -239,7 +239,7 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
     </div>
     <div class= "block">
       <span class="subtitle" id="subtitle8">Viewについて</span>
-      
+
       <img src="/images/site/making4.png" alt=""><br><br>
       <p>写真になりますが、@のが実行されてコード化できませんでした。
       </p>
@@ -247,7 +247,7 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
 
      <div class="block">
       <span class="subtitle" id="subtitle9">作ってみた感想</span>
-      
+
        <p>
         全体的に見た目のクオリティが低いな思いました。html&cssを毛嫌いした結果が出ました。
         普段よく見るサイトがどれだけ見やすく作られているか思い知らされました。<br>
@@ -269,5 +269,5 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
 @endsection
 
 @section('js')
- @vite(['resources/js/article.js'])
+ @vite(['resources/js/site.js'])
 @endsection

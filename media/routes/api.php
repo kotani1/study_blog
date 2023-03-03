@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('article-list','ApiArticleController@article_list');
-Route::get('article-single/{article_id}','ApiArticleController@article_single');
-Route::get('category','ApiArticleController@get_category');
-Route::get('article-category-search/{article_id}', 'ApiArticleController@article_category_search');
+Route::get('article-list', 'ApiArticleController@article_list');
+Route::get('article-single/{article_id}', 'ApiArticleController@article_single');
+Route::get('category', 'ApiArticleController@get_category');
+Route::get('article-by-category/{article_id}', 'ApiArticleController@article_category_search');
 Route::get('article-sort-new', 'ApiArticleController@sort_new');
 Route::get('article-sort-view', 'ApiArticleController@sort_view');
 

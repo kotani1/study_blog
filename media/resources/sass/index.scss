@@ -3,6 +3,10 @@ a {
   text-decoration: none;
   color: black;
 }
+// .flex{
+//   display: flex;
+//   justify-content: space-between;
+// }
 
 .left {
   width: 80%;
@@ -60,11 +64,17 @@ a {
     margin-bottom: 10px;
     color: black;
   }
+  .block_in_right {
+    margin-left: auto;
+  }
+
+
   .logo_color{
     height:60%;
     background-color: aqua;
   }
 }
+
 
 .right {
   width: 20%;

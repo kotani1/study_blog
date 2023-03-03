@@ -12,7 +12,7 @@ class ApiArticleController extends Controller
 {
     public function article_list()
     {
-        $articles = ArticleCategorySearch::with(['article:id,title,description', 'articleCategory:id,name,slug'])->get();
+        $articles = ArticleCategorySearch::with(['article:id,title,description,view_count', 'articleCategory:id,name,slug'])->get();
         return $articles;
     }
     public function article_single($article_id)
@@ -32,18 +32,18 @@ class ApiArticleController extends Controller
 
     public function article_category_search($category_id)
     {
-        $articles = ArticleCategorySearch::with(['article:id,title,description', 'articleCategory:id,name,slug'])->where('article_category_id', '=', $category_id)->get();
+        $articles = ArticleCategorySearch::with(['article:id,title,description,view_count', 'articleCategory:id,name,slug'])->where('article_category_id', '=', $category_id)->get();
         return $articles;
     }
 
     public function sort_new()
     {
-        $articles = ArticleCategorySearch::with(['article:id,title,description', 'articleCategory:id,name,slug'])->orderBy('id', 'desc')->get();
+        $articles = ArticleCategorySearch::with(['article:id,title,description,view_count', 'articleCategory:id,name,slug'])->orderBy('id', 'desc')->get();
         return $articles;
     }
     public function sort_view()
     {
-        $articles = ArticleCategorySearch::select('title', 'description', 'article_id', 'name', 'slug')
+        $articles = ArticleCategorySearch::select('title', 'description', 'article_id', 'name', 'slug','view_count')
             ->join('articles', 'article_category_searches.article_id', '=', 'articles.id')
             ->join('article_categories', 'article_category_searches.article_category_id', '=', 'article_categories.id')
             ->orderBy('articles.view_count', 'desc')

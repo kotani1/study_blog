@@ -1,22 +1,32 @@
 import { apiConnect } from "./api";
-// import { getArticleByCategory, createArticleByCategory } from "./article_category_search";
+import { categoryParent } from "./function";
 
-
-const WEB_URL ='/article/category-search';
+const URL_API_CATEGORY_LIST = '/api/category';
+const URL_ARTICLE_BY_CATEGORY ='/article/by-category';
 const PARAM = '?category_id=';
 
-$.ajax({
-  url: "/api/category",
-  type: 'GET',	//GET、POST
-  dataType: 'json',	//text, html, xml, json, jsonp, script
-}).done(function (data) {
-  console.log("通信成功");
-  console.log(data);
+
+function getCategoryList(API_URL,createElementFunc){
+  apiConnect(API_URL, createElementFunc)
+}
+
+function createCategoryList(data) {
   data.map((value) => {
-    $('#category_list').append(
-      `<li><a href="${WEB_URL + PARAM + value.id}">${value.name}</a></li>`
-    );
+    if(value.parent_category_name == 'nothing'){
+      $('#category_list').append(
+        `<li id="${value.name}">
+          <a href="${URL_ARTICLE_BY_CATEGORY + PARAM + value.id}">${value.name}</a>
+        </li>`
+      )
+    }else{
+      $('#category_list').append(
+        `<li class="child" name="${value.parent_category_name}">
+            <a href="${URL_ARTICLE_BY_CATEGORY + PARAM + value.id}">${value.name}</a>
+        </li>`
+      )
+    }
   })
-}).fail(function () {
-  console.log("失敗: 通信処理NG");
-})
+  categoryParent();
+}
+
+getCategoryList(URL_API_CATEGORY_LIST, createCategoryList);

@@ -36,9 +36,9 @@ Route::get('/test', 'AdminArticleResourceController@test')->name('test');
 
 //記事に関して
 Route::group(['prefix' => 'article', 'as' => 'article.'],function () {
-  Route::get('/', 'ArticleController@article_list')->name('index');
-  Route::get('single', 'ArticleController@article_single')->name('show');
-  Route::get('/category-search','ArticleController@article_category_search');
+  Route::get('/', 'ArticleController@list')->name('index');
+  Route::get('single', 'ArticleController@single');
+  Route::get('/by-category','ArticleController@by_category');
   Route::get('sort-new', 'ArticleController@sort_new')->name('sort_new');
   Route::get('sort-view', 'ArticleController@sort_view')->name('sort_view');
 });
@@ -57,12 +57,6 @@ Route::group(['prefix' => 'admin' , 'as'=> 'admin.'], function () {
     Route::get('article/sort_new', 'AdminArticleResourceController@sort_new')->name('article.sort_new');
     Route::get('article/article_category_search/{id}', 'AdminArticleResourceController@article_category_search')->name('article.article-category-search');
     Route::resource('article', 'AdminArticleResourceController');
-
-
-    Route::get('register', 'RegisterController@adminRegisterForm');
-    Route::post('register', 'RegisterController@adminRegister')->name('register');
-
-
   });
 
   Route::get('logout', 'LoginController@adminLogout')->name('logout');
