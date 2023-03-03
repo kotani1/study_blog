@@ -24,7 +24,6 @@
 @endsection
 
 @section('js')
-@vite(['resources/js/index.js'])
-@vite(['resources/js/article_category_search.js'])
+@vite(['resources/js/articles/by_category.js'])
 @vite(['resources/js/category_list.js'])
 @endsection
