@@ -15,9 +15,15 @@ function makeContents() {
   }
 }
 
+//記事リストのHTML要素
 function element_article_list(value) {
-  return `<li class="article_li">
-      <a href="/article/single?article_id=${value.id}">
+  
+  const URL_ARTICLE_SINGLE = "/article/single";
+  const PARAM = "?article_id=";
+
+  return(
+    `<li class="article_li">
+      <a href="${URL_ARTICLE_SINGLE + PARAM+ value.id}">
         <div class="block">
           <div class="flex">
             <div>
@@ -37,7 +43,7 @@ function element_article_list(value) {
           </ul>
         </div>
       </a>
-    </li>`
+    </li>`)
 }
 
 
