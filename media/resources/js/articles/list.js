@@ -10,6 +10,7 @@ function getArticleList(URL_API_ARTICLE_LIST,createElementFunc){
 
 
 
+
 function createArticleList(data){
   data.map((value) => {
     $('#article_list').append(

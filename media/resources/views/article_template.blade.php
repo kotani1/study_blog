@@ -24,17 +24,23 @@
 <div class="flex">
   <div class="left">
 
-    <h1>記事の最終更新日が勝手に更新される</h1>
+    <h1>サイトリニューアルしました！(Laravel編)</h1>
     <ul>
-      <li>バージョン:9.41.0</li>
+      <li>Laravelバージョン:9.41.0</li>
+      <li>サイトの構成をバックエンドではAPIを作成し、フロントではajax通信で画面描画に変更しました。</li>
+      <li>この記事ではLaravel側の処理を書いていきます。</li>
     </ul>
       <div class="block">
         <span class="subtitle" id="subtitle1">概要</span>
         <ul>
           <li>
             <p>
-              このサイトの記事の最終更新日が勝手に更新されていました。 <br>
-              そもそも最終更新日を書いている理由は記事の情報を時間の面で判断するために書いています。作成日が古いけど、最終更新日が最近だったらまだ信用性があるなみたいな感じです。
+              サイトの構成をバックエンドではAPIを作成し、フロントではajax通信で画面描画に変更しました。以前までのサイトの構成はフロントの描画までもLaravelで処理していました。しかしリニューアルしてjquryでajax通信をし画面描画するように変更しました。
+            </p>
+          </li>
+          <li>
+            <p>
+              今回の記事はバック側(Laravel)での処理の復習をしていきます。
             </p>
           </li>
         </ul>
@@ -104,5 +110,5 @@
 @endsection
 
 @section('js')
- @vite(['resources/js/article.js'])
+ @vite(['resources/js/site.js'])
 @endsection
