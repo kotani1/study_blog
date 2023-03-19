@@ -1,3 +1,4 @@
+console.log('single.js開始')
 import { apiConnect } from "../api";
 import { makeContents } from "../function";
 
@@ -17,10 +18,10 @@ function createArticleSingle(data){
     `<h1 id="article_id">${data.title}</h1>
     <p>記事作成日：${data.created_at.substr(0, 10)}</p>
     補足説明：${data.body}`
-    );
-
+  );
     //目次作成機能
-    makeContents();
+  makeContents(); 
+  hljs.initHighlighting();
 }
 
 getArticleSingle(URL_API_ARTICLE_SINGLE, createArticleSingle);

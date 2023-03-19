@@ -7,7 +7,6 @@
 @section('meta')
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 @endsection
 
 
@@ -107,6 +106,22 @@
     <a class="pagetop" href="#"><div class="pagetop__arrow"></div></a>
   </div>
 </div>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  $('body').append(
+  `<pre>
+    <code>
+      $this->routes(function () {
+          Route::middleware('api')
+              ->prefix('api')
+              ->namespace($this->namespace) //追加
+              ->group(base_path('routes/api.php'));
+    </code>
+  </pre>`
+  )
+</script>
+
 @endsection
 
 @section('js')

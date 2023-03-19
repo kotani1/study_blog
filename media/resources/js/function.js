@@ -15,17 +15,18 @@ function makeContents() {
       $('<li><p class="mokuji_content"><a href="#subtitle' + i + '">' + $("#subtitle" + i).text() + "</a></p></li>")
       );
   }
+  console.log('html要素作成完了')
 }
 
 //記事リストのHTML要素
 function element_article_list(value) {
 
   const URL_ARTICLE_SINGLE = "/article/single";
-  const PARAM = "?article_id=";
+  const PARAM_ARTICLE_ID = "?article_id=";
 
   return(
     `<li class="article_li">
-      <a href="${URL_ARTICLE_SINGLE + PARAM + value.article_id}">
+      <a href="${URL_ARTICLE_SINGLE + PARAM_ARTICLE_ID + value.article_id}">
         <div class="block">
           <div class="flex">
             <div>
